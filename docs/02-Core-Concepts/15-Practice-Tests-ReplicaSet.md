@@ -1,6 +1,15 @@
 # Practice Test - ReplicaSets
   - Take me to [Practice Test](https://kodekloud.com/topic/practice-test-replicasets/)
 
+
+#### replica-set 수정
+```
+kubectl scale rs new-replica-set --replicas 5
+```
+```
+kubectl edit replicaset new-replica-set
+```
+
 #### Solutions for the replicaset practice tests
 1. <details>
    <summary>How many pods exist on the system?</summary>

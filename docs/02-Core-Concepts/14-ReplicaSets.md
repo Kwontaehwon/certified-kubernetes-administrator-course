@@ -1,25 +1,29 @@
 # ReplicaSets
-  - Take me to [Video Tutorial](https://kodekloud.com/topic/replicasets/)
+  - [비디오 튜토리얼](https://kodekloud.com/topic/replicasets/)로 이동하기
 
-In this section, we will take a look at the below
+이 섹션에서는 다음 내용을 살펴보겠습니다
 - Replication Controller
 - ReplicaSet
 
-#### Controllers are brain behind kubernetes
+#### 컨트롤러는 쿠버네티스의 두뇌입니다
 
-## What is a Replica and Why do we need a replication controller?
+## Replica란 무엇이며 왜 replication controller가 필요한가요?
 
   ![rc](../../images/rc.PNG)
   
-  ![rc1](../../images/rc1.PNG)
+  저장된 수의 Pod가 항상 실행중인지를 확인 함.
   
-## Difference between ReplicaSet and Replication Controller
-- **`Replication Controller`** is the older technology that is being replaced by a **`ReplicaSet`**.
-- **`ReplicaSet`** is the new way to setup replication.
+  ![rc1](../../images/rc1.PNG)
 
-## Creating a Replication Controller
+  Replication Controller는 여러 노드에 걸쳐있을 수 있음.
+  
+## ReplicaSet과 Replication Controller의 차이점
+- **`Replication Controller`**는 **`ReplicaSet`**으로 대체되고 있는 이전 기술입니다.
+- **`ReplicaSet`**은 복제를 설정하는 새로운 방법입니다.
 
-## Replication Controller Definition File
+## Replication Controller 생성하기
+
+## Replication Controller 정의 파일
   
    ![rc2](../../images/rc2.PNG)
   
@@ -44,23 +48,24 @@ In this section, we will take a look at the below
            image: nginx
      replicas: 3
 ```
-  - To Create the replication controller
+`template` 부분은 파드 정의 파일과 동일함.
+  - Replication Controller를 생성하려면
     ```
     $ kubectl create -f rc-definition.yaml
     ```
-  - To list all the replication controllers
+  - 모든 replication controller를 나열하려면
     ```
     $ kubectl get replicationcontroller
     ```
-  - To list pods that are launch by the replication controller
+  - Replication controller가 실행한 파드들을 나열하려면
     ```
     $ kubectl get pods
     ```
     ![rc3](../../images/rc3.PNG)
     
-## Creating a ReplicaSet
+## ReplicaSet 생성하기
   
-## ReplicaSet Definition File
+## ReplicaSet 정의 파일
 
    ![rs](../../images/rs.PNG)
 
@@ -88,32 +93,34 @@ In this section, we will take a look at the below
        matchLabels:
         type: front-end
  ```
-#### ReplicaSet requires a selector definition when compare to Replication Controller.
+#### ReplicaSet은 Replication Controller와 비교했을 때 selector 정의가 필요합니다.
+#### 또한 apiVersion이 apps/v1 임.
    
-  - To Create the replicaset
+  - ReplicaSet을 생성하려면
     ```
     $ kubectl create -f replicaset-definition.yaml
     ```
-  - To list all the replicaset
+  - 모든 replicaset을 나열하려면
     ```
     $ kubectl get replicaset
     ```
-  - To list pods that are launch by the replicaset
+  - ReplicaSet이 실행한 파드들을 나열하려면
     ```
     $ kubectl get pods
     ```
    
     ![rs1](../../images/rs1.PNG)
     
-## Labels and Selectors
-#### What is the deal with Labels and Selectors? Why do we label pods and objects in kubernetes?
-
+## 레이블과 셀렉터
+#### 레이블과 셀렉터는 무엇이고, 왜 쿠버네티스에서 파드와 객체에 레이블을 붙이나요?
+ReplicaSet은 이미 생성되어 있는 파드에도 `Selector`를 이용하여 ReplicaSet을 생성할 수 있음. <br>
+-> 결국 ReplicaSet은 파드를 모니터링하고 관리하는 역할을 함.
   ![labels](../../images/labels.PNG)
   
-## How to scale replicaset
-- There are multiple ways to scale replicaset
-  - First way is to update the number of replicas in the replicaset-definition.yaml definition file. E.g replicas: 6 and then run 
- ```
+## ReplicaSet을 스케일하는 방법
+- ReplicaSet을 스케일하는 방법에는 여러 가지가 있습니다
+  - 첫 번째 방법은 replicaset-definition.yaml 정의 파일에서 replicas 수를 업데이트하는 것입니다. 예: replicas: 6으로 변경 후 실행
+```
     apiVersion: apps/v1
     kind: ReplicaSet
     metadata:
@@ -141,16 +148,18 @@ In this section, we will take a look at the below
   ```
   $ kubectl apply -f replicaset-definition.yaml
   ```
-  - Second way is to use **`kubectl scale`** command.
+  - 두 번째 방법은 **`kubectl scale`** 명령어를 사용하는 것입니다.
+    - **이 방법은 .yaml 파일을 수정하는 것 이 아님.**
   ```
   $ kubectl scale --replicas=6 -f replicaset-definition.yaml
   ```
-  - Third way is to use **`kubectl scale`** command with type and name
+  
+  - 세 번째 방법은 타입과 이름으로 **`kubectl scale`** 명령어를 사용하는 것입니다.
   ```
   $ kubectl scale --replicas=6 replicaset myapp-replicaset
   ```
   ![rs2](../../images/rs2.PNG)
 
-#### K8s Reference Docs:
+#### K8s 참조 문서:
 - https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/
 - https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller/

@@ -3,6 +3,20 @@
 
 Solutions for Practice Test - Imperative Commands
 
+### 풀이
+- 2
+  - create로 pod 만드는 것 불가능 -> 단순하게 `run` 명령어 사용
+  - `run` 명령어 사용시 `pods` 같은거 안붙고 바로 이름 붙여야함.
+- 4
+  - port 열때 serivce를 만드는게 아니라 `expose` 명령어 사용
+- 9번 : pod 만들고 port 오픈 (아래 두개는 동일)
+  - ```
+    kubectl run httpd --image httpd:alpine --expose --port 80
+    ```
+  - ```
+    kubectl run httpd --image httpd:alpine
+    kubectl expose pods httpd --port=80
+    ```
 1. Information
 
 1.  <details>

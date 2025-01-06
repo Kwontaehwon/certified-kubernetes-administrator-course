@@ -9,8 +9,14 @@ In this section, we will take a look at kube-scheduler.
   ![kube-scheduler1](../../images/kube-scheduler1.PNG)
   
 #### Why do you need a Scheduler?
+- 하드웨어 리소스를 효율적으로 사용하기 위해 파드를 적절한 노드에 배치하는 역할을 합니다.
+- 특정 노드에 들어가야만 하는 파드가 있을 수 있습니다.
 
   ![kube-scheduler2](../../images/kube-scheduler2.PNG)
+1. Fliter Node
+  - 파드가 배치될 수 있는 노드를 필터링
+2. Score Node
+  - 파드가 배치될 수 있는 노드를 점수매기고 가장 적합한 노드를 선택
     
 ## Install kube-scheduler - Manual
 - Download the kubescheduler binary from the kubernetes release pages [kube-scheduler](https://storage.googleapis.com/kubernetes-release/release/v1.13.0/bin/linux/amd64/kube-scheduler). For example: To download kube-scheduler v1.13.0, Run the below command.

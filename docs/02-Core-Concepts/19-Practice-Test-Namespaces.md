@@ -1,6 +1,16 @@
 # Practice Test - Namespaces
   - Take me to [Practice Test](https://kodekloud.com/topic/practice-test-namespaces/)
 
+#### 나의 풀이
+- 모든 네임스페이스 pods
+  - kubectl get pods --all-namespaces
+- 7번 : `db-service.dev.svc.cluster.local` 으로 접근
+  -  db-service : 호스트 이름
+  -  dev : 네임스페이스
+  -  svc : 서비스
+  -  cluster.local : 도메인
+
+
 Solutions to practice test for namespaces
 
 1. <details>

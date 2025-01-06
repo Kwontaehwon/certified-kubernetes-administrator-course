@@ -59,6 +59,7 @@
     kubectl get pods -o wide
     ```
 
+   ![alt text](image-3.png)
     Note the node column for each of the 3 `newpods` pods
 
    </details>

@@ -1,31 +1,34 @@
 # Kube Proxy
-- Take me to [Video Tutorial](https://kodekloud.com/topic/kube-proxy/)
+- [비디오 튜토리얼](https://kodekloud.com/topic/kube-proxy/)로 이동하기
 
-In this section, we will take a look at kube-proxy.
+이 섹션에서는 kube-proxy에 대해 알아보겠습니다.
 
-Within Kubernetes Cluster, every pod can reach every other pod, this is accomplish by deploying a pod networking cluster to the cluster. 
-- Kube-Proxy is a process that runs on each node in the kubernetes cluster.
+쿠버네티스 클러스터 내에서 모든 파드는 다른 모든 파드에 도달할 수 있습니다. 이는 클러스터에 파드 네트워킹 클러스터를 배포함으로써 달성됩니다. 
+- Kube-Proxy는 쿠버네티스 클러스터의 각 노드에서 실행되는 프로세스입니다.
   
   ![kube-proxy](../../images/kube-proxy.PNG)
-  
-## Install kube-proxy - Manual
-- Download the kube-proxy binary from the kubernetes release pages [kube-proxy](https://storage.googleapis.com/kubernetes-release/release/v1.13.0/bin/linux/amd64/kube-proxy). For example: To download kube-proxy v1.13.0, Run the below command.
+- 서비스는 실제 존재하는 것이 아니기 때문에 interface가 없음.
+  - 단순히 k8s 메모리에 있는 가상의 구성요소
+- 각 노드에서 실행되는 `kube-proxy`가 새로운 서비스가 생성되면 각 노드에 대한 적절한 규칙을 생성하고 이를 전달함.
+
+## Kube-proxy 설치 - 수동
+- 쿠버네티스 릴리스 페이지에서 kube-proxy 바이너리를 다운로드하세요 [kube-proxy](https://storage.googleapis.com/kubernetes-release/release/v1.13.0/bin/linux/amd64/kube-proxy). 예를 들어 kube-proxy v1.13.0을 다운로드하려면 다음 명령어를 실행하세요.
   ```
   $ wget https://storage.googleapis.com/kubernetes-release/release/v1.13.0/bin/linux/amd64/kube-proxy
   ```
-- Extract it
-- Run it as a service
+- 압축을 해제하세요
+- 서비스로 실행하세요
 
   ![kube-proxy1](../../images/kube-proxy1.PNG)
 
-## View kube-proxy options - kubeadm
-- If you set it up with kubeadm tool, kubeadm tool will deploy the kube-proxy as pod in kube-system namespace. In fact it is deployed as a daemonset on master node.
+## Kube-proxy 옵션 확인 - kubeadm
+- kubeadm 도구로 설정한 경우, kubeadm은 kube-proxy를 kube-system 네임스페이스에 파드로 배포합니다. 실제로는 마스터 노드에 데몬셋으로 배포됩니다.
   ```
   $ kubectl get pods -n kube-system
   ```
   ![kube-proxy2](../../images/kube-proxy2.PNG)
   
   
-K8s Reference Docs:
+K8s 참조 문서:
 - https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/
 - https://kubernetes.io/docs/concepts/overview/components/

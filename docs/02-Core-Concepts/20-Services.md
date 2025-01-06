@@ -1,36 +1,41 @@
-# Kubernetes Services
-  - Take me to [Video Tutorial](https://kodekloud.com/topic/services-3/)
+# 쿠버네티스 서비스
+  - [비디오 튜토리얼](https://kodekloud.com/topic/services-3/)로 이동하기
   
-In this section we will take a look at **`services`** in kubernetes
+이 섹션에서는 쿠버네티스의 **`서비스`**에 대해 알아보겠습니다
 
-## Services
-- Kubernetes Services enables communication between various components within and outside of the application.
+## 서비스
+- 쿠버네티스 서비스는 애플리케이션 내부 및 외부의 다양한 구성 요소 간의 통신을 가능하게 합니다.
 
   ![srv1](../../images/srv1.PNG)
   
-#### Let's look at some other aspects of networking
+#### 네트워킹의 다른 측면들을 살펴보겠습니다
 
-## External Communication
+## 외부 통신
 
-- How do we as an **`external user`** access the **`web page`**?
+- **`외부 사용자`**로서 우리는 어떻게 **`웹 페이지`**에 접근할 수 있을까요?
 
-  - From the node (Able to reach the application as expected)
+  - 노드에서 (예상대로 애플리케이션에 도달할 수 있음)
   
     ![srv2](../../images/srv2.PNG)
     
-  - From outside world (This should be our expectation, without something in the middle it will not reach the application)
+  - 외부 세계에서 (중간에 무언가 없다면 애플리케이션에 도달할 수 없음)
+    - k8s NodePort서비스 필요
   
     ![srv3](../../images/srv3.PNG)
    
     
- ## Service Types
+ ## 서비스 유형
  
- #### There are 3 types of service types in kubernetes
+ #### 쿠버네티스에는 3가지 유형의 서비스가 있습니다
  
    ![srv-types](../../images/srv-types.PNG)
  
  1. NodePort
-    - Where the service makes an internal port accessible on a port on the NODE.
+    - 서비스가 내부 포트를 노드의 포트에서 접근 가능하게 만듭니다.
+      - Nodeport default port 범위 : 30000 ~ 32767
+      - ports 하위에서 `port`만 필수. 
+        - `targetPort`를 생략할 경우 port와 동일하게 설정됨
+        - `nodePort`를 생략할 경우 30000 ~ 32767 안에서 여유 있는 포트로 랜덤하게 설정됨
       ```
       apiVersion: v1
       kind: Service
@@ -39,13 +44,14 @@ In this section we will take a look at **`services`** in kubernetes
       spec:
        types: NodePort
        ports:
-       - targetPort: 80
-         port: 80
-         nodePort: 30008
+       - targetPort: 80 // 1번
+         port: 80 // 2번
+         nodePort: 30008 // 3번
       ```
      ![srvnp](../../images/srvnp.PNG)
       
-      #### To connect the service to the pod
+      #### 서비스를 파드에 연결하려면
+      - Pods의 Label을 Selector에 지정
       ```
       apiVersion: v1
       kind: Service
@@ -55,8 +61,8 @@ In this section we will take a look at **`services`** in kubernetes
        type: NodePort
        ports:
        - targetPort: 80
-         port: 80
-         nodePort: 30008
+         port: 80 
+         nodePort: 30008 
        selector:
          app: myapp
          type: front-end
@@ -64,39 +70,39 @@ In this section we will take a look at **`services`** in kubernetes
 
     ![srvnp1](../../images/srvnp1.PNG)
       
-      #### To create the service
+      #### 서비스를 생성하려면
       ```
       $ kubectl create -f service-definition.yaml
       ```
       
-      #### To list the services
+      #### 서비스 목록을 보려면
       ```
       $ kubectl get services
       ```
       
-      #### To access the application from CLI instead of web browser
+      #### 웹 브라우저 대신 CLI에서 애플리케이션에 접근하려면
       ```
       $ curl http://192.168.1.2:30008
       ```
       
       ![srvnp2](../../images/srvnp2.PNG)
 
-      #### A service with multiple pods
+      #### 여러 파드가 있는 서비스
       
       ![srvnp3](../../images/srvnp3.PNG)
       
-      #### When Pods are distributed across multiple nodes
+      #### 파드가 여러 노드에 분산되어 있을 때
+      - 파드와 노드가 어떻게 되어있든 서비스는 동일하게 동작한다.
      
       ![srvnp4](../../images/srvnp4.PNG)
      
             
  1. ClusterIP
-    - In this case the service creates a **`Virtual IP`** inside the cluster to enable communication between different services such as a set of frontend servers to a set of backend servers.
+    - 이 경우 서비스는 클러스터 내부에 **`가상 IP`**를 생성하여 프론트엔드 서버 집합과 백엔드 서버 집합과 같은 다른 서비스 간의 통신을 가능하게 합니다.
     
  1. LoadBalancer
-    - Where the service provisions a **`loadbalancer`** for our application in supported cloud providers.
+    - 서비스가 지원되는 클라우드 공급자에서 애플리케이션을 위한 **`로드밸런서`**를 프로비저닝합니다.
     
-K8s Reference Docs:
+K8s 참조 문서:
 - https://kubernetes.io/docs/concepts/services-networking/service/
 - https://kubernetes.io/docs/tutorials/kubernetes-basics/expose/expose-intro/
-
