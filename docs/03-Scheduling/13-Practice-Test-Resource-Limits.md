@@ -1,3 +1,4 @@
+[my-core-tip](../my-core-tip.md)
 # Practice Test - Resource Limits
   - Take me to [Practice Test](https://kodekloud.com/topic/practice-test-resource-limits/)
   

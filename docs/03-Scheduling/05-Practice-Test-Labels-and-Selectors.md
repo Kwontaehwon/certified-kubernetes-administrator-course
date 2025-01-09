@@ -1,6 +1,13 @@
 # Practice Test - Labels and Selectors
   - Take me to [Practice Test](https://kodekloud.com/topic/practice-test-labels-and-selectors/)
 
+### 풀이
+- `kubectl get all --selector env=prod,bu=finance,tier=frontend`
+  - `--selctor` 명령어 옵션
+  - `kubectl get all` : 모든 Object 조회
+- selector 콤마 사이에 띄어쓰기 있으면 작동 안됨.
+
+
 Solutions to Practice Test - Labels and Selectors
 1.  <details>
     <summary>We have deployed a number of PODs. They are labelled with tier, env and bu. How many PODs exist in the dev environment (env)?</summary>
@@ -40,7 +47,8 @@ Solutions to Practice Test - Labels and Selectors
 1.  <details>
     <summary>Identify the POD which is part of the prod environment, the finance BU and of frontend tier?</summary>
 
-    We can combine label expressions with comma. Only items with _all_ the given label/value pairs will be returned, i.e. it is an `and` condition.
+    - We can combine label expressions with comma. Only items with _all_ the given label/value pairs will be returned, i.e. it is an `and` condition.
+    - selector 콤마 사이에 띄어쓰기 있으면 작동 안됨.
 
     ```
     kubectl get all --selector env=prod,bu=finance,tier=frontend

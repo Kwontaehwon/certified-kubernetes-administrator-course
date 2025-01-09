@@ -1,10 +1,16 @@
 # Commands and Arguments in Kubernetes
-  - Take me to [Video Tutorial](https://kodekloud.com/topic/commands-and-arguments-in-kubernetes-2/)
+  - [비디오 튜토리얼](https://kodekloud.com/topic/commands-and-arguments-in-kubernetes-2/)로 이동하기
 
-In this section, we will take a look at commands and arguments in kubernetes
+이 섹션에서는 kubernetes의 명령어와 인수에 대해 살펴보겠습니다.
 
-- Anything that is appended to the docker run command will go into the **`args`** property of the pod definition file in the form of an array.
-- The command field corresponds to the entrypoint instruction in the Dockerfile so to summarize there are 2 fields that correspond to 2 instructions in the Dockerfile.
+- docker run 명령어에 추가된 모든 것은 pod 정의 파일의 **`args`** 속성에 배열 형태로 들어갑니다.
+- command 필드는 Dockerfile의 entrypoint 지시문에 해당하므로 요약하자면 Dockerfile의 2개의 지시문에 해당하는 2개의 필드가 있습니다.
+
+| docker       | kubernetes |
+| ------------ | ---------- |
+| `ENTRYPOINT` | `command`  |
+| `cmd`        | `args`     |
+
   ```
   apiVersion: v1
   kind: Pod

@@ -1,6 +1,10 @@
 # Practice Test - Manual Scheduling
   - Take me to [Practice Test](https://kodekloud.com/topic/practice-test-manual-scheduling/)
 
+### 풀이
+spec.nodeName 속성을 설정하여 수동으로 스케줄링 할 수 있음.
+
+
 Solutions to Practice Test - Manual Scheduling
 
 1.  <details>

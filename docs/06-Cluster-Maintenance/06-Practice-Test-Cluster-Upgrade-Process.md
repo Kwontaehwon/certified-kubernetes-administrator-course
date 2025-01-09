@@ -1,6 +1,14 @@
 # Practice Test - Cluster Upgrade Process
   - Take me to [Practice Test](https://kodekloud.com/topic/practice-test-cluster-upgrade-process/)
-  
+
+### 풀이
+- cluster 버전 보기
+  - `kubectl get nodes`
+- 업그레이드 가능한 버전 보기
+  - `kubeadm upgrade plan`
+- 실제 업그레이드 하는거 너무 복잡함..
+  - docs 보고 따라하는 수 밖에 없는 것 같음.
+
 Solutions to practice test cluster upgrade process
 - What is the current version of the cluster?
   

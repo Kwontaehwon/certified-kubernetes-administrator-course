@@ -1,6 +1,10 @@
 # Practice Test - Multi-Container Pods
   - Take me to [Practice Test](https://kodekloud.com/topic/practice-test-multi-container-pods/)
-  
+
+### 풀이
+- `kubectl run` `-image` 옵션으로 하나의 컨테이너만 만들 수 있다.
+  - 일단 `run` 명령어로 하나 만들고 다른 컨테이너 추가.
+
 Solutions to practice test - multi-container pods
 - Identify the number of containers running in the 'red' pod.
   

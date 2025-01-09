@@ -1,37 +1,37 @@
-# Multiple Schedulers 
-  - Take me to [Video Tutorial](https://kodekloud.com/topic/multiple-schedulers/)
+# 여러 스케줄러 
+  - [비디오 튜토리얼](https://kodekloud.com/topic/multiple-schedulers/)로 이동하기
 
-In this section, we will take a look at multiple schedulers
+이 섹션에서는 Multiple Schedulers 에 대해 살펴보겠습니다.
 
-## Custom Schedulers
-- Your kubernetes cluster can schedule multiple schedulers at the same time.
+## 사용자 정의 스케줄러
+- 귀하의 kubernetes 클러스터는 동시에 여러 스케줄러를 스케줄링할 수 있습니다.
 
   ![ms](../../images/ms.PNG)
   
-## Deploy additional scheduler
-- Download the binary
+## 추가 스케줄러 배포
+- 바이너리 다운로드
   ```
   $ wget https://storage.googleapis.com/kubernetes-release/release/v1.12.0/bin/linux/amd64/kube-scheduler
   ```
   ![das](../../images/das.PNG)
   
-## Deploy additional scheduler - kubeadm
-   
+## 추가 스케줄러 배포 - kubeadm
+- `leaderElect`
   ![dask](../../images/dask.PNG)
   
-  - To create a scheduler pod
+  - 스케줄러 파드를 생성하려면
     ```
     $ kubectl create -f my-custom-scheduler.yaml
     ```
   
-## View Schedulers
-- To list the scheduler pods
+## 스케줄러 보기
+- 스케줄러 파드를 나열하려면
   ```
   $ kubectl get pods -n kube-system
   ```
 
-## Use the Custom Scheduler
-- Create a pod definition file and add new section called **`schedulerName`** and specify the name of the new scheduler
+## 사용자 정의 스케줄러 사용
+- 파드 정의 파일을 생성하고 **`schedulerName`**이라는 새 섹션을 추가한 다음 새 스케줄러의 이름을 지정합니다.
   ```
   apiVersion: v1
   kind: Pod
@@ -45,29 +45,28 @@ In this section, we will take a look at multiple schedulers
   ```
   ![cs](../../images/cs.png)
   
-- To create a pod definition
+- 파드 정의를 생성하려면
   ```
   $ kubectl create -f pod-definition.yaml
   ```
-- To list pods
+- 파드 목록을 보려면
   ```
   $ kubectl get pods
   ```
 
-## View Events
-- To view events
+## 이벤트 보기
+- 이벤트를 보려면
   ```
   $ kubectl get events
   ```
   ![cs1](../../images/cs1.PNG)
   
-## View Scheduler Logs
-- To view scheduler logs
+## 스케줄러 로그 보기
+- 스케줄러 로그를 보려면
   ```
   $ kubectl logs my-custom-scheduler -n kube-system
   ```
   ![cs2](../../images/cs2.PNG)
   
-#### K8s Reference Docs
+#### K8s 참조 문서
 - https://kubernetes.io/docs/tasks/extend-kubernetes/configure-multiple-schedulers/
-  

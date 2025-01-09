@@ -1,6 +1,11 @@
 # Practice Test - Backup and Restore Methods
 Take me to [Practice Test](https://kodekloud.com/topic/practice-test-backup-and-restore-methods/)
 
+### 풀이
+- At what address can you reach the ETCD cluster from the controlplane node?
+  -  `--advertise-client-urls`=https://192.168.231.162:2379
+- snapshot save 시 `cacert`, `cert`, `key` 옵션 필수
+
 Solutions to practice test - Backup and Restore Methods
 
 1.  <details>

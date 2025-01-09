@@ -1,6 +1,11 @@
 # Practice Test - Node Affinity
   - Take me to [Practice Test](https://kodekloud.com/topic/practice-test-node-affinity-2/)
 
+### 풀이
+  ```
+  kubectl label node node01 color=blue
+  ```
+
 Solutions to practice test - node affinity
 
 1.  <details>

@@ -1,6 +1,10 @@
 # Practice Test - OS Upgrades
   - Take me to [Practice Test](https://kodekloud.com/topic/practice-test-os-upgrades/)
-  
+
+### 풀이
+- replicaset에 들어가있지 않은 POD가 존재하는 node를 drain 할 경우 경고 창이 뜬다.
+	- ![](images/03-Practice-Test-OS-Upgrades.png)
+	- 
 Solutions to practice test - OS Upgrades
 - Let us explore the environment first. How many nodes do you see in the cluster?
   

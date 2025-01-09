@@ -1,24 +1,24 @@
-# Labels and Selectors
-  - Take me to [Video Tutorial](https://kodekloud.com/topic/labels-and-selectors/)
+# 레이블과 셀렉터
+  - [비디오 튜토리얼]로 이동하기 (https://kodekloud.com/topic/labels-and-selectors/)
   
-In this section, we will take a look at **`Labels and Selectors`**
+이 섹션에서는 **`레이블과 셀렉터`**에 대해 살펴보겠습니다.
 
-#### Labels and Selectors are standard methods to group things together.
+#### 레이블과 셀렉터는 사물을 그룹화하는 표준 방법입니다.
   
-#### Labels are properties attached to each item.
+#### 레이블은 각 항목에 부착된 속성입니다.
 
   ![labels-ckc](../../images/labels-ckc.PNG)
   
-#### Selectors help you to filter these items
+#### 셀렉터는 이러한 항목을 필터링하는 데 도움을 줍니다.
  
   ![sl](../../images/sl.PNG)
   
-How are labels and selectors are used in kubernetes?
-- We have created different types of objects in kubernetes such as **`PODs`**, **`ReplicaSets`**, **`Deployments`** etc.
+Kubernetes에서 레이블과 셀렉터는 어떻게 사용됩니까?
+- 우리는 **`PODs`**, **`ReplicaSets`**, **`Deployments`** 등과 같은 다양한 유형의 객체를 Kubernetes에서 생성했습니다.
   
   ![ls](../../images/ls.PNG)
   
-How do you specify labels?
+레이블을 어떻게 지정합니까?
    ```
     apiVersion: v1
     kind: Pod
@@ -54,11 +54,11 @@ Kubernetes uses labels to connect different objects together
      replicas: 3
      selector:
        matchLabels:
-        app: App1
+        app: **App1**
      template:
        metadata:
          labels:
-           app: App1
+           app: **App1**
            function: Front-end
        spec:
          containers:
@@ -86,7 +86,8 @@ For services
   ![lrs1](../../images/lrs1.PNG)
   
 ## Annotations
-- While labels and selectors are used to group objects, annotations are used to record other details for informative purpose.
+# Start of Selection
+- 레이블과 셀렉터는 객체를 그룹화하는 데 사용되는 반면, Annotation은 정보 제공을 위한 다른 세부 정보를 기록하는 데 사용됩니다.
     ```
     apiVersion: apps/v1
     kind: ReplicaSet

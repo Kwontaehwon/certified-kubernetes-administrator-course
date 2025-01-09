@@ -1,6 +1,11 @@
 # Practice Test - Taints and Tolerations
   - Take me to [Practice Test](https://kodekloud.com/topic/practice-test-taints-and-tolerations/)
 
+### 풀이
+- `$ kubectl taint nodes <node-name> key=value:taint-effect` : 노드에 Taint 추가
+- `kubectl taint nodes controlplane node-role.kubernetes.io/control-plane:NoSchedule-` : Taint 제거
+  - 제거하려는 Taint 정보를 적고 `-` 붙여줌
+
 Solutions to the Practice Test - Taints and Tolerations
 
 1.  <details>

@@ -1,6 +1,19 @@
 # Practice Test - Backup and Restore Methods 2
   - Take me to [Practice Test](https://kodekloud.com/topic/practice-test-backup-and-restore-methods-2-2/)
 
+### 풀이
+어렵다..
+- `kubectl config get-contexts` 명령어로 클러스터 목록 확인 가능
+- `kubectl config use-context <cluster-name>` 명령어로 클러스터 전환 가능
+- `ectdctl`
+  - `ETCDCTL_API=3` 명시
+  - `etcdctl snapshot save` / `etcdctl snapshot restore` 명령어 사용
+    - `--cacert /etc/kubernetes/pki/etcd/ca.crt --cert /etc/kubernetes/pki/etcd/server.crt --key /etc/kubernetes/pki/etcd/server.key opt/cluster1.db` 보안 관련 옵션 필수
+- stacked etcd 와 external etcd
+  - pods 에서 etcd가 안보인다고 etcd가 없는게 아님.
+    - 해당 node로 들어가서 `kubectl -n kube-system describe pod kube-apiserver-cluster2-controlplane ` 명령어 실행하면 `--etcd-servers` 이 외부 IP로 되어있음.
+- etcd가 돌아가는 control-plane node에 들어가서 직접 백업을 해야할 수 도 있음.
+
 Solutions to practice test - Backup and Restore Methods 2
 
 In this test, we practice both with _stacked_ and _external_ etcd clusters.
@@ -150,7 +163,7 @@ In this test, we practice both with _stacked_ and _external_ etcd clusters.
       --cacert /etc/kubernetes/pki/etcd/ca.crt \
       --cert /etc/kubernetes/pki/etcd/server.crt \
       --key /etc/kubernetes/pki/etcd/server.key \
-      cluster1.db
+      opt/cluster1.db
 
     # Return to student node
     exit

@@ -1,6 +1,10 @@
 # Practice Test - Monitor Cluster Components
   - Take me to [Practice Test](https://kodekloud.com/topic/practice-test-monitor-cluster-components/)
-  
+
+### 풀이
+- `kubectl top node`
+  - Metric Server를 따로 배포하는 프로세스가 선제되어야함.
+
 Solutions to practice test - monitor cluster components
 1.  <details>
     <summary>We have deployed a few PODs running workloads. Inspect it.</summary>

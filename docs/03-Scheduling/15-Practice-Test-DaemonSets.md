@@ -1,3 +1,8 @@
+### 풀이
+- `kubectl create`
+	- `daemonset` 없음
+	- `replicaset` 없음
+-> Spec문서에서 복붙하거나 형태가 유사한 `kubectl create deployment --dry-run=client -o yaml` 사용
 # Practice Test - DaemonSets
   - Take me to [Practice Test](https://kodekloud.com/topic/practice-test-daemonsets/)
   

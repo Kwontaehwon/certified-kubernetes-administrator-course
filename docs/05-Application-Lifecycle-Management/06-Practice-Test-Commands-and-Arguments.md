@@ -1,6 +1,15 @@
 # Practice Test - Commands and Arguments
   - Take me to [Practice Test](https://kodekloud.com/topic/practice-test-commands-and-arguments/)
-  
+
+### 풀이
+- 모든 command 는 "" (따옴표) 로 묶어줘야 한다.
+- 실행중인 Pod에 대해서 Command를 변경하는 것은 불가능하다.
+  - `kubectl replace --force -f <pod-definition-file>`
+  - 혹은 delete 후 재생성
+- `kubectl run` 시 conatiner 내부 command 전달 방법
+  - ![alt text](image.png)
+    - ` -- ` 뒤에 오는 옵션들은 kubectl 옵션이 아닌 컨테이너 내부 command 이다.
+
 Solutions to practice test - commands and arguments
 - Run the command 'kubectl get pods' and count the number of pods.
   

@@ -24,8 +24,8 @@
 ![alt text](image-5.png)
 ![alt text](image-6.png)
 
-- **`kubectl get pods`** 명령어는 default 네임스페이스에 있는 파드만 나열.
-  - 다른 네임스페이스의 파드를 나열하려면 **`kubectl get pods`** 명령어와 함께 **`--namespace`** 플래그나 인자를 사용하세요.
+- **`kubectl get pods`** 명령어는 default 네임스페이스에 있는 파드만 나열
+  - 다른 네임스페이스의 파드를 나열하려면 **`--namespace`** 플래그나 인자를 사용
   ```
   $ kubectl get pods --namespace=kube-system
   ```

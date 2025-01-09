@@ -1,6 +1,21 @@
 # Practice Test - Multiple Schedulers
   - Take me to [Practice Test](https://kodekloud.com/topic/practice-test-multiple-schedulers/)
-  
+
+### 아직 안배운 부분이 너무 많음
+- serviceAccount, volume 등
+- 일단 pod를 생성할 때 `spec.schedulerName` 으로 스케줄러를 지정할 수 있음 정도만 기억
+```
+apiVersion: v1 
+kind: Pod 
+metadata:
+  name: nginx 
+spec:
+  containers:
+  - image: nginx
+    name: nginx
+  schedulerName: my-scheduler
+  ```
+
 Solutions to practice test - multiple schedulers
 - Run the command 'kubectl get pods --namespace=kube-system'
   

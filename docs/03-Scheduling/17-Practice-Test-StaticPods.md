@@ -1,6 +1,14 @@
 # Practice Test - Static Pods
   - Take me to [Practice Test](https://kodekloud.com/topic/practice-test-static-pods/)
   
+### 풀이
+Run the command ps -aux | grep kubelet and identify the config file - --config=/var/lib/kubelet/config.yaml. Then check in the config file for staticPodPath.
+![alt text](image-2.png)
+![alt text](image-3.png)
+
+- 10번 (개어려움)
+  - `ssh`로 node 안으로 들어가서 kubelet config 찾고 yaml 파일 삭제
+
 Solutions to the practice test - static pods
 - Run the command kubectl get pods --all-namespaces and look for those with -controlplane appended in the name
   

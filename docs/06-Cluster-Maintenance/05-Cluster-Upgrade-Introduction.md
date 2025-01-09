@@ -1,100 +1,99 @@
-# Cluster Upgrade Introduction
-  - Take me to [Video Tutorial](https://kodekloud.com/topic/cluster-upgrade-introduction/)
+# 클러스터 업그레이드 소개
+  - [비디오 튜토리얼](https://kodekloud.com/topic/cluster-upgrade-introduction/)로 이동하기
   
-#### Is it mandatory for all of the kubernetes components to have the same versions?
-- No, The components can be at different release versions.
+#### 모든 Kubernetes 구성 요소가 동일한 버전을 가져야 하나?
+- 아니요, 구성 요소는 서로 다른 릴리스 버전을 가질 수 있다.
   
-#### At any time, kubernetes supports only up to the recent 3 minor versions
-- The recommended approach is to upgrade one minor version at a time.
+#### Kubernetes는 항상 최근 3개의 부 버전(minor version)만 지원한다
+- 권장하는 방법은 한 번에 하나의 부 버전(minor version)씩 업그레이드하는 것이다.
   
   ![up2](../../images/up2.PNG)
   
-#### Options to upgrade k8s cluster
+#### k8s 클러스터 업그레이드 옵션
  
   ![opt](../../images/opt.PNG)
   
-## Upgrading a Cluster
-- Upgrading a cluster involves 2 major steps
+## 클러스터 업그레이드
+- 클러스터 업그레이드는 2개의 주요 단계를 포함한다.
   
-#### There are different strategies that are available to upgrade the worker nodes
-- One is to upgrade all at once. But then your pods will be down and users will not be able to access the applications.
+#### 워커 노드를 업그레이드하는 다양한 전략이 있다
+- 첫 번째는 모든 노드를 한 번에 업그레이드하는 것이다. 그러나 이 경우 포드(pod)가 중단되고 사용자가 애플리케이션에 접근할 수 없게 된다.
   ![stg1](../../images/stg1.PNG)
-- Second one is to upgrade one node at a time. 
+- 두 번째는 한 번에 하나의 노드를 업그레이드하는 것이다. 
   ![stg2](../../images/stg2.PNG)
-- Third one would be to add new nodes to the cluster
+- 세 번째는 클러스터에 새로운 노드를 추가하는 것이다.
   ![stg3](../../images/stg3.PNG)
   
-## kubeadm - Upgrade master node
-- kubeadm has an upgrade command that helps in upgrading clusters.
+## kubeadm - 마스터 노드 업그레이드
+- kubeadm에는 클러스터 업그레이드를 돕는 업그레이드 명령이 있다.
   ```
   $ kubeadm upgrade plan
   ```
   ![kube1](../../images/kube1.png)
   
-- Upgrade kubeadm from v1.11 to v1.12
+- kubeadm을 v1.11에서 v1.12로 업그레이드
   ```
   $ apt-get upgrade -y kubeadm=1.12.0-00
   ```
-- Upgrade the cluster
+- 클러스터 업그레이드
   ```
   $ kubeadm upgrade apply v1.12.0
   ```
-- If you run the 'kubectl get nodes' command, you will see the older version. This is because in the output of the command it is showing the versions of kubelets on each of these nodes registered with the API Server and not the version of API Server itself  
+- 'kubectl get nodes' 명령을 실행하면 이전 버전을 볼 수 있다. 이는 명령의 출력에서 API 서버에 등록된 각 노드의 kubelet 버전을 보여주고 API 서버 자체의 버전은 보여주지 않기 때문이다.  
   ```
   $ kubectl get nodes
   ```
   
   ![kubeu](../../images/kubeu.PNG)
   
-- Upgrade 'kubelet' on the master node
+- 마스터 노드에서 'kubelet' 업그레이드
   ```
   $ apt-get upgrade kubelet=1.12.0-00
   ```
-- Restart the kubelet
+- kubelet 재시작
   ```
   $ systemctl restart kubelet
   ```
-- Run 'kubectl get nodes' to verify
+- 'kubectl get nodes'를 실행하여 확인
   ```
   $ kubectl get nodes
   ```
   
   ![kubeu1](../../images/kubeu1.PNG)
  
-## kubeadm - Upgrade worker nodes
+## kubeadm - 워커 노드 업그레이드
   
-- From master node, run 'kubectl drain' command to move the workloads to other nodes
+- 마스터 노드에서 'kubectl drain' 명령을 실행하여 작업 부하를 다른 노드로 이동
   ```
   $ kubectl drain node-1
   ```
-- Upgrade kubeadm and kubelet packages
+- kubeadm 및 kubelet 패키지 업그레이드
   ```
   $ apt-get upgrade -y kubeadm=1.12.0-00
   $ apt-get upgrade -y kubelet=1.12.0-00
   ```
-- Update the node configuration for the new kubelet version
+- 새로운 kubelet 버전에 대한 노드 구성 업데이트
   ```
   $ kubeadm upgrade node config --kubelet-version v1.12.0
   ```
-- Restart the kubelet service
+- kubelet 서비스 재시작
   ```
   $ systemctl restart kubelet
   ```
-- Mark the node back to schedulable
+- 노드를 다시 스케줄 가능 상태로 표시
   ```
   $ kubectl uncordon node-1
   ```
   
   ![kubeu2](../../images/kubeu2.PNG)
   
-- Upgrade all worker nodes in the same way
+- 모든 워커 노드를 같은 방식으로 업그레이드
 
   ![kubeu3](../../images/kubeu3.PNG)
   
 
-#### Demo Video on [Cluster Upgrade](https://kodekloud.com/topic/demo-cluster-upgrade/)
+#### 클러스터 업그레이드에 대한 [데모 비디오](https://kodekloud.com/topic/demo-cluster-upgrade/) 
 
-#### K8s Reference Docs
+#### K8s 참조 문서
 - https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/kubeadm-upgrade/
-- https://kubernetes.io/docs/reference/setup-tools/kubeadm/kubeadm-upgrade/
-  
+- https://kubernetes.io/docs/reference/setup-tools/kubeadm/kubeadm-upgrade/  

@@ -1,6 +1,11 @@
 # Practice Test - Rolling Updates and Rollback
   - Take me to [Practice Test](https://kodekloud.com/topic/practice-test-rolling-updates-and-rollbacks/)
-  
+
+### 풀이
+- `kubectl edit deployments.apps frontend `
+- Rollingupdate 에서 Recreate으로 변경할때 strategy.type 변경 뿐만 아니라 strategy.rollingUpdate 삭제 필요
+
+
 Solutions to practice test - rolling updates and rollback
 - We have deployed a simple web application. Inspect the PODs and the Services
 
