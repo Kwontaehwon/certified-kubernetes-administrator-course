@@ -4,7 +4,7 @@
 이 섹션에서는 OS 업그레이드에 대해 살펴보겠습니다.
 
 #### 노드가 5분 이상 다운되면, 해당 노드에서 pods가 종료됩니다.
-- 5분 값은 `kube-controller-manager`의 `--pod-eviction-timeou`에 저장
+- 5분 값은 `kube-controller-manager`의 `--pod-eviction-timeout`에 저장
 - 해당 Pod가 `replicaSet`에 속해있으면 다른 노드에 Pod 생성
 - 해당 Pod가 `replicaSet`에 속해있지 않으면 그냥 삭제
 

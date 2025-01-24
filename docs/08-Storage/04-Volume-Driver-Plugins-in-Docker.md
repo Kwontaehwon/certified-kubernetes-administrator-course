@@ -1,14 +1,15 @@
-# Volume Driver Plugins in Docker
+> [!summary]
+> Volume 은 Volume Driver 에 의해 관리된다.
+# Docker의 Volume Driver Plugins
 
-  - Take me to [Lecture](https://kodekloud.com/topic/volume-driver-plugins-in-docker-4/)
+  - [강의](https://kodekloud.com/topic/volume-driver-plugins-in-docker-4/)로 이동하기
 
-In this section, we will take a look at **Volume Driver Plugins in Docker**
+이 섹션에서는 Docker의 **Volume Driver Plugins**에 대해 살펴본다.
 
-- We discussed about Storage drivers. Storage drivers help to manage storage on images and containers.
-- We have already seen that if you want to persist storage, you must create volumes. Volumes are not handled by the storage drivers. Volumes are handled by volume driver plugins. The default volume driver plugin is local.
-- The local volume plugin helps to create a volume on Docker host and store its data under the `/var/lib/docker/volumes/` directory.
-- There are many other volume driver plugins that allow you to create a volume on third-party solutions like Azure file storage, DigitalOcean Block Storage, Portworx, Google Compute Persistent Disks etc.
-
+- Storage drivers는 이미지와 컨테이너의 저장소를 관리하는 데 도움을 준다.
+- 저장소를 지속적으로 유지하려면 볼륨을 생성해야 한다는 것을 이미 보았다. 볼륨은 storage drivers에 의해 처리되지 않으며, volume driver plugins에 의해 처리된다. 기본 volume driver plugin은 local이다.
+	- local volume plugin은 Docker 호스트에서 볼륨을 생성하고 `/var/lib/docker/volumes/` 디렉토리 아래에 데이터를 저장하는 데 도움을 준다.
+	- Azure 파일 스토리지, DigitalOcean Block Storage, Portworx, Google Compute Persistent Disks 등과 같은 타사 솔루션에서 볼륨을 생성할 수 있는 많은 다른 volume driver plugins가 있다.
 
 ![class-9](../../images/class9.PNG)
 
@@ -18,17 +19,8 @@ In this section, we will take a look at **Volume Driver Plugins in Docker**
 ```
 $ docker run -it --name mysql --volume-driver rexray/ebs --mount src=ebs-vol,target=/var/lib/mysql mysql
 ```
-
-
 ![class-10](../../images/class10.PNG)
-
-
-
-
-
-
 #### Docker Reference Docs
-
 - https://docs.docker.com/engine/extend/legacy_plugins/
 - https://github.com/rexray/rexray
 

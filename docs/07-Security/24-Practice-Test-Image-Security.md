@@ -1,6 +1,11 @@
 # Practice Test - Image Security
   - Take me to [Practice Test](https://kodekloud.com/topic/practice-test-image-security/)
 
+### 풀이
+https://kubernetes.io/docs/concepts/containers/images/#specifying-imagepullsecrets-on-a-pod
+- `spec.imagePullSecrets.name` 아래에 `docker-registry` name 명시
+
+
 Solutions to the practice test - Image Security
 - We have an application running on our cluster. Let us explore it first. What image is the application using?
 

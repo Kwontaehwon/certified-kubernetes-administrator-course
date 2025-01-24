@@ -1,83 +1,86 @@
 # RBAC
-  - Take me to [Video Tutorial](https://kodekloud.com/topic/role-based-access-controls/)
+  - [비디오 튜토리얼](https://kodekloud.com/topic/role-based-access-controls/)로 이동하기
 
-In this section, we will take a look at RBAC
+이 섹션에서는 RBAC에 대해 살펴본다.
 
-## How do we create a role?
-- Each role has 3 sections
-  - apiGroups
-  - resources
-  - verbs
-- create the role with kubectl command
+## 역할을 어떻게 생성하나요?
+- 각 역할은 3개의 섹션으로 구성된다.
+  - `apiGroups` : 비워둘 경우 Core API group
+  - `resources`
+  - `verbs`
+ kubectl 명령어로 Role 생성
   ```
   $ kubectl create -f developer-role.yaml
   ```
 
-## The next step is to link the user to that role.
-- For this we create another object called **`RoleBinding`**. This role binding object links a user object to a role.
-- create the role binding using kubectl command
+## User Role Binding
+- 이를 위해 **`RoleBinding`** 이라는 또 다른 객체를 생성한다. 이 역할 바인딩 객체는 사용자 객체를 역할에 연결한다.
+- kubectl 명령어로 역할 바인딩을 생성한다.
   ```
   $ kubectl create -f devuser-developer-binding.yaml
   ```
-- Also note that the roles and role bindings fall under the scope of namespace.
-  ```
+- 또한 role과 role binding은 네임스페이스의 범위에 속한다는 점에 유의해야 한다.
+```yaml
   apiVersion: rbac.authorization.k8s.io/v1
   kind: Role
   metadata:
     name: developer
   rules:
-  - apiGroups: [""] # "" indicates the core API group
+  - apiGroups: [""] # ""는 Core API 그룹을 나타냄
     resources: ["pods"]
     verbs: ["get", "list", "update", "delete", "create"]
   - apiGroups: [""]
     resources: ["ConfigMap"]
     verbs: ["create"]
-  ```
-  ```
+```
+
+```yaml
   apiVersion: rbac.authorization.k8s.io/v1
   kind: RoleBinding
   metadata:
     name: devuser-developer-binding
-  subjects:
+  subjects: # User 정보
   - kind: User
-    name: dev-user # "name" is case sensitive
+    name: dev-user # "name"은 대소문자를 구분함
     apiGroup: rbac.authorization.k8s.io
-  roleRef:
+  roleRef: # Role 정보
     kind: Role
     name: developer
     apiGroup: rbac.authorization.k8s.io
-  ```
+```
   ![rbac1](../../images/rbac1.PNG)
   
 
-## View RBAC
+## RBAC 보기
   
-- To list roles
+- 역할 목록을 보려면
   ```
   $ kubectl get roles
   ```
-- To list rolebindings
+- 역할 바인딩 목록을 보려면
   ```
   $ kubectl get rolebindings
   ```
-- To describe role 
+- 역할을 설명하려면 
   ```
   $ kubectl describe role developer
   ```
   
   ![rbac2](../../images/rbac2.PNG)
     
-- To describe rolebinding
+- 역할 바인딩을 설명하려면
   ```
   $ kubectl describe rolebinding devuser-developer-binding
   ```
   
   ![rbac3](../../images/rbac3.PNG)
   
-#### What if you being a user would like to see if you have access to a particular resource in the cluster.
-## Check Access
+#### 사용자가 클러스터 내 특정 리소스에 접근할 수 있는지 확인하고 싶다면?
+## 접근 확인
 
-- You can use the kubectl auth command
+- `kubectl auth` 명령어를 사용할 수 있다.
+	- `can-i` 로 명령 실행이 가능한지 확인
+	- `--as` 로 특정 유저의 권한 확인
   ```
   $ kubectl auth can-i create deployments
   $ kubectl auth can-i delete nodes
@@ -92,21 +95,22 @@ In this section, we will take a look at RBAC
   
   ![rbac5](../../images/rbac5.PNG)
   
-## Resource Names
-- Note on resource names we just saw how you can provide access to users for resources like pods within the namespace.
+## Resource Name
+- `resourceNames`으로 리소스안의 특정 인스턴스에 대한 권한 부여
+	-> 더 세부적인 규칙
   ```
   apiVersion: rbac.authorization.k8s.io/v1
   kind: Role
   metadata:
     name: developer
   rules:
-  - apiGroups: [""] # "" indicates the core API group
+  - apiGroups: [""] # ""는 코어 API 그룹을 나타냄
     resources: ["pods"]
     verbs: ["get", "update", "create"]
     resourceNames: ["blue", "orange"]
   ```  
   ![rbac4](../../images/rbac4.PNG)
   
-#### K8s Reference Docs
+#### K8s 참조 문서
 - https://kubernetes.io/docs/reference/access-authn-authz/rbac/
 - https://kubernetes.io/docs/reference/access-authn-authz/rbac/#command-line-utilities

@@ -1,6 +1,15 @@
 # Practice Test - View Certificates
   - Take me to [Practice Test](https://kodekloud.com/topic/practice-test-view-certificate-details/)
-  
+
+### 풀이
+
+![](images/10-Practice-Test-View-Certificate-Details.png)
+- `etc/kubernetes/manifests` 아래에 control object 들의 yaml 파일들이 있음.
+
+
+- 포트 `:2379` ETCD 이므로 관련하여 오류 발생한 경우 ETCD 문제임을 의심해 봐야함.
+
+
 Solutions to practice test - view certificates
 - Identify the certificate file used for the kube-api server
   

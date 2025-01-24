@@ -148,7 +148,7 @@ These are notes from the [Certified Kubernetes Administrator Course](https://kod
   - [02-Introduction-to-Docker-Storage](docs/08-Storage/02-Introduction-to-Docker-Storage.md)
   - [03-Storage-in-Docker](docs/08-Storage/03-Storage-in-Docker.md)
   - [04-Volume-Driver-Plugins-in-Docker](docs/08-Storage/04-Volume-Driver-Plugins-in-Docker.md)
-  - [05-Container.Storage-Interface](docs/08-Storage/05-Container.Storage-Interface.md)
+  - [05-Container Storage-Interface](docs/08-Storage/05-Container%20Storage-Interface.md)
   - [06-Volumes](docs/08-Storage/06-Volumes.md)
   - [07-Persistent-Volumes](docs/08-Storage/07-Persistent-Volumes.md)
   - [08-Persistent-Volume-Claims](docs/08-Storage/08-Persistent-Volume-Claims.md)

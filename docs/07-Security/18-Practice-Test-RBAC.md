@@ -1,6 +1,25 @@
 # Practice Test - RBAC
   - Take me to [Practice Test](https://kodekloud.com/topic/practice-test-role-based-access-controls/)
 
+### 풀이
+-  role 과 rolebinding이 다른 것에 유의
+	- `kubectl get role` 
+	- `kubectl get rolebinding`
+
+- 권한 확인
+	- `kubectl auth can-i get pods --as dev-user`
+
+
+[role 생성](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#kubectl-create-rolebinding)
+
+- rule 설정 시 apiGroup 이 다를 경우 하나의 덩어리를 새로 만들어줘야 함.
+	![](images/18-Practice-Test-RBAC.png)
+
+> [!Important] namspace
+> role은 `namespace` 범위에 속하므로 role 을 수정하거나 검색할때는 `-n <namespace>` 옵션을 꼭 붙여야함.
+
+
+
 Solutions to practice test - RBAC
 - Run the command kubectl describe pod kube-apiserver-controlplane -n kube-system and look for --authorization-mode
   

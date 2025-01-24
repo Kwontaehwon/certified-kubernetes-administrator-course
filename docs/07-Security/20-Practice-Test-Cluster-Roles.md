@@ -1,6 +1,13 @@
 # Practice Test - Cluster Roles
   - Take me to [Practice Test](https://kodekloud.com/topic/practice-test-cluster-roles/)
- 
+
+### 풀이
+- ClusterRole 생성
+  - `kubectl create clusterrole my-role --verb=get,list,watch --resource=node --dry-run=client -o yaml > my-role`
+- CluserRoleBinding 생성
+  - `kubectl create clusterrolebinding my-rolebinding --clusterrole=my-role --user=michelle`
+
+
 Solutions to practice test - cluster roles
 - Run the command kubectl get clusterroles --no-headers | wc -l or kubectl get clusterroles --no-headers -o json | jq '.items | length'
   

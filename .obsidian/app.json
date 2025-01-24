@@ -3,5 +3,7 @@
   "attachmentFolderPath": "./images",
   "alwaysUpdateLinks": true,
   "newLinkFormat": "relative",
-  "promptDelete": false
+  "promptDelete": false,
+  "showLineNumber": false,
+  "readableLineLength": true
 }

@@ -9,6 +9,7 @@
 - `kubectl run` 시 conatiner 내부 command 전달 방법
   - ![alt text](image.png)
     - ` -- ` 뒤에 오는 옵션들은 kubectl 옵션이 아닌 컨테이너 내부 command 이다.
+      - ex) kubectl run mytest --image=kodekloud/webapp-color -- --color green`
 
 Solutions to practice test - commands and arguments
 - Run the command 'kubectl get pods' and count the number of pods.

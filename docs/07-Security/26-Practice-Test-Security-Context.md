@@ -1,6 +1,14 @@
 # Practice Test - Security Context
   - Take me to [Practice Test](https://kodekloud.com/topic/practice-test-security-contexts/)
-  
+
+### 풀이
+- `whoami` : 현재 user 가 무엇인지 확인
+- `kubectl delete pod ubuntu-sleeper --force` : 바로 POD 삭제 (빠르게)
+- **POD 설정 보다 Container 설정이 우선**
+- Container 설정 아래 `spec.securityContext.capabilities.add`
+	- 컨테이너 옵션으로만 줄 수 있고 POD 단위에선 안됨
+	- ![](images/26-Practice-Test-Security-Context.png)
+
 Solutions to practice test - security context
 - Run the command 'kubectl exec ubuntu-sleeper whoami' and count the number of pods.
 

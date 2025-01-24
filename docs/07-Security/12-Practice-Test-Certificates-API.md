@@ -1,6 +1,14 @@
 # Practice Test - Certificates API
   - Take me to [Practice Test](https://kodekloud.com/topic/practice-test-certificates-api/)
 
+### 풀이
+- https://kubernetes.io/docs/reference/access-authn-authz/certificate-signing-requests/#create-certificatessigningrequest 참고하여 CertificateSigningRequest 생성
+- `kubectl get csr`
+- `kubectl certificate approve <csr-name>`
+- `kubectl get csr <csr-name> -o yaml`
+- `kubectl certificate deny <csr-name>`
+- `kubectl delete csr <csr-name>`
+
 Solutions to the practice test - certificate API
 - A new member akshay joined our team. He requires access to our cluster. The Certificate Signing Request is at the /root location.
 

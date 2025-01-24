@@ -1,6 +1,12 @@
 # Practice Test - KubeConfig
   - Take me to [Practice Test](https://kodekloud.com/topic/practice-test-kubeconfig/)
- 
+### 풀이
+- 기본 kube config 확인
+  - `cat $HOME/.kube/config`
+  - (default 라면) `kubectl config view`
+- 특정 Config 파일의 특정 context 사용
+  - `kubectl config --kubeconfig=/root/my-kube-config use-context research`
+
 Solutions to the practice test - kubeconfig
 - Look for the kube config file under `/root/.kube`
   

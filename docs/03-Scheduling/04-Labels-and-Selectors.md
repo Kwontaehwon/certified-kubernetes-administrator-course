@@ -18,7 +18,7 @@ Kubernetes에서 레이블과 셀렉터는 어떻게 사용됩니까?
   
   ![ls](../../images/ls.PNG)
   
-레이블을 어떻게 지정합니까?
+Label 지정 방법
    ```
     apiVersion: v1
     kind: Pod
@@ -70,19 +70,19 @@ Kubernetes uses labels to connect different objects together
 
 For services
  
-      ```
-      apiVersion: v1
-      kind: Service
-      metadata:
-       name: my-service
-      spec:
-       selector:
-         app: App1
-       ports:
-       - protocol: TCP
-         port: 80
-         targetPort: 9376 
-       ```
+  ```
+  apiVersion: v1
+  kind: Service
+  metadata:
+   name: my-service
+  spec:
+   selector:
+	 app: App1
+   ports:
+   - protocol: TCP
+	 port: 80
+	 targetPort: 9376 
+   ```
   ![lrs1](../../images/lrs1.PNG)
   
 ## Annotations

@@ -13,43 +13,58 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "docs/my-core-tip.md",
+                "file": "docs/07-Security/23-Image-Security.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "my-core-tip"
+              "title": "23-Image-Security"
             }
           },
           {
-            "id": "783019fca9f82cde",
+            "id": "20a314aa358950bb",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "docs/05-Application-Lifecycle-Management/10.Secrets.md",
+                "file": "docs/07-Security/27-Network-Policies.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "10.Secrets"
+              "title": "27-Network-Policies"
             }
           },
           {
-            "id": "f57ee4a045f834f2",
+            "id": "9b9ba9a71342f8b2",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "docs/06-Cluster-Maintenance/07-Backup-and-Restore-Methods.md",
+                "file": "docs/07-Security/19-Cluster-Roles.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "07-Backup-and-Restore-Methods"
+              "title": "19-Cluster-Roles"
+            }
+          },
+          {
+            "id": "8e8e53261d3f7e5e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "docs/08-Storage/12-Storage-Class.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "12-Storage-Class"
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -71,7 +86,7 @@
                 "sortOrder": "alphabetical"
               },
               "icon": "lucide-folder-closed",
-              "title": "파일 탐색기"
+              "title": "Files"
             }
           },
           {
@@ -80,7 +95,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "side",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -99,6 +114,16 @@
               "state": {},
               "icon": "lucide-bookmark",
               "title": "Bookmarks"
+            }
+          },
+          {
+            "id": "725c4b6944c6f1f6",
+            "type": "leaf",
+            "state": {
+              "type": "file-tree-view",
+              "state": {},
+              "icon": "sheets-in-box",
+              "title": "File Tree"
             }
           }
         ]
@@ -172,8 +197,19 @@
               "icon": "lucide-list",
               "title": "Outline of 12-Resource-Limits"
             }
+          },
+          {
+            "id": "1367812595c46f6f",
+            "type": "leaf",
+            "state": {
+              "type": "advanced-tables-toolbar",
+              "state": {},
+              "icon": "spreadsheet",
+              "title": "Advanced Tables"
+            }
           }
-        ]
+        ],
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
@@ -182,62 +218,64 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "switcher:퀵 스위처 열기": false,
-      "graph:그래프 뷰 열기": false,
-      "canvas:새 캔버스 만들기": false,
-      "daily-notes:오늘의 데일리 노트 열기": false,
-      "templates:템플릿 삽입": false,
-      "command-palette:명령어 팔레트 열기": false,
-      "table-editor-obsidian:Advanced Tables Toolbar": false
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "table-editor-obsidian:Advanced Tables Toolbar": false,
+      "file-tree-alternative:File Tree Alternative Plugin": false,
+      "callout-manager:Insert Callout": false
     }
   },
-  "active": "f5622ce6db0e9afb",
+  "active": "8e8e53261d3f7e5e",
   "lastOpenFiles": [
-    "docs/06-Cluster-Maintenance/07-Backup-and-Restore-Methods.md",
-    "docs/06-Cluster-Maintenance/05-Cluster-Upgrade-Introduction.md",
-    "docs/06-Cluster-Maintenance/06-Practice-Test-Cluster-Upgrade-Process.md",
-    "docs/06-Cluster-Maintenance/04-Kubernetes-Software-Versions.md",
-    "docs/06-Cluster-Maintenance/03-Practice-Test-OS-Upgrades.md",
-    "docs/06-Cluster-Maintenance/images/03-Practice-Test-OS-Upgrades.png",
-    "docs/06-Cluster-Maintenance/images",
-    "docs/06-Cluster-Maintenance/02-OS-Upgrades.md",
-    "docs/05-Application-Lifecycle-Management/17.Self-Healing-Applications.md",
-    "docs/05-Application-Lifecycle-Management/16-Practice-Test-Init-Containers.md",
-    "docs/05-Application-Lifecycle-Management/15.Init-Containers.md",
-    "docs/05-Application-Lifecycle-Management/14-Multi-Container-Pods-Design-Patterns.md",
-    "docs/05-Application-Lifecycle-Management/13-Practice-Test-Multi-Container-Pods.md",
-    "docs/05-Application-Lifecycle-Management/12.Multi-Containers-PODs.md",
-    "docs/05-Application-Lifecycle-Management/11.Practice-Test-Secrets.md",
-    "docs/05-Application-Lifecycle-Management/10-1. Encryption at Rest 활성화.md",
-    "docs/05-Application-Lifecycle-Management/images/10-1. Encryption at Rest 활성화.png",
-    "docs/05-Application-Lifecycle-Management/10.Secrets.md",
-    "docs/05-Application-Lifecycle-Management/08-Configure-ConfigMaps-in-Applications.md",
-    "docs/05-Application-Lifecycle-Management/09-Practice-Test-Env-Variables.md",
-    "docs/02-Core-Concepts/11-1-Pods-With-YAML.md",
-    "docs/02-Core-Concepts/20-Services.md",
+    "docs/08-Storage/images/12-Storage-Class.png",
+    "docs/08-Storage/07-Persistent-Volumes.md",
+    "docs/08-Storage/08-Persistent-Volume-Claims.md",
+    "docs/08-Storage/06-Volumes.md",
+    "docs/08-Storage/05-Container Storage-Interface.md",
+    "docs/08-Storage/images/05-Container Storage-Interface.png",
+    "docs/08-Storage/04-Volume-Driver-Plugins-in-Docker.md",
+    "docs/08-Storage/03-Storage-in-Docker.md",
+    "docs/08-Storage/images/03-Storage-in-Docker-1.png",
+    "docs/08-Storage/images/03-Storage-in-Docker.png",
+    "docs/08-Storage/images",
+    "docs/08-Storage/02-Introduction-to-Docker-Storage.md",
+    "docs/08-Storage/01-Storage-Section-Introduction.md",
+    "docs/07-Security/30-Download-Presentation-Deck.md",
+    "docs/07-Security/29-kubectx-and-kubens-commands.md",
     "docs/my-core-tip.md",
-    "docs/05-Application-Lifecycle-Management/07.Configure-Environment-Variables-in-Applications.md",
-    "docs/05-Application-Lifecycle-Management/06-Practice-Test-Commands-and-Arguments.md",
-    "docs/05-Application-Lifecycle-Management/05-Commands-and-Arguments-in-Kubernetes.md",
-    "docs/05-Application-Lifecycle-Management/image.png",
-    "docs/05-Application-Lifecycle-Management/04-Commands-and-Arguments-in-Docker.md",
-    "docs/05-Application-Lifecycle-Management/02-RollingUpdates-and-Rollback.md",
-    "docs/05-Application-Lifecycle-Management/images/04-Commands-and-Arguments-in-Docker-2.png",
-    "docs/05-Application-Lifecycle-Management/images/04-Commands-and-Arguments-in-Docker-1.png",
-    "docs/05-Application-Lifecycle-Management/images/04-Commands-and-Arguments-in-Docker.png",
+    "docs/07-Security/27-Network-Policies.md",
+    "docs/07-Security/images/27-Network-Policies-2.png",
+    "docs/07-Security/images/27-Network-Policies-1.png",
+    "docs/07-Security/images/27-Network-Policies.png",
+    "docs/07-Security/26-Practice-Test-Security-Context.md",
+    "docs/07-Security/images/26-Practice-Test-Security-Context.png",
+    "docs/07-Security/25-Security-Context.md",
+    "docs/07-Security/21-Service Accounts.md",
+    "docs/07-Security/25-(Pre-requisite) Security in Docker.md",
+    "docs/07-Security/24-Practice-Test-Image-Security.md",
+    "docs/07-Security/23-Image-Security.md",
+    "docs/07-Security/22-Practice-Test-Service-Accounts.md",
+    "docs/07-Security/19-Cluster-Roles.md",
+    "images/23-(Pre-requisite) Security in Docker-4.png",
+    "images/23-(Pre-requisite) Security in Docker-3.png",
+    "images/23-(Pre-requisite) Security in Docker-2.png",
+    "docs/07-Security/17-RBAC.md",
+    "docs/07-Security/20-Practice-Test-Cluster-Roles.md",
+    "docs/07-Security/07-TLS-in-Kubernetes-Certificate-Creation.md",
+    "docs/05-Application-Lifecycle-Management/08-Configure-ConfigMaps-in-Applications.md",
+    "docs/07-Security/18-Practice-Test-RBAC.md",
+    "docs/07-Security/images",
+    "docs/06-Cluster-Maintenance/images",
     "docs/05-Application-Lifecycle-Management/images",
-    "docs/05-Application-Lifecycle-Management/03-Practice-Test-RollingUpdates-Rollback.md",
-    "my-extension/images/icon128.png",
-    "my-extension/images/icon48.png",
-    "my-extension/images/icon16 copy 2.png",
-    "my-extension/images/icon16 copy.png",
     "my-extension/images",
     "my-extension/styles.css",
     "my-extension/popup.js",
     "my-extension/popup.html",
     "my-extension/manifest.json",
-    "my-extension/content.js",
-    "my-extension",
-    "popup.js"
+    "my-extension/content.js"
   ]
 }

@@ -1,26 +1,26 @@
 # Certificate API
-  - Take me to [Video Tutorial](https://kodekloud.com/topic/certificates-api/)
+  - [비디오 튜토리얼](https://kodekloud.com/topic/certificates-api/)로 이동하기
   
-In this section, we will take a look at how to manage certificates and certificate API's in kubernetes
+이 섹션에서는 Kubernetes에서 인증서 및 인증서 API를 관리하는 방법을 살펴본다.
 
 ## CA (Certificate Authority)
-- The CA is really just the pair of key and certificate files that we have generated, whoever gains access to these pair of files can sign any certificate for the kubernetes environment.
+- CA는 우리가 생성한 키와 인증서 파일 쌍에 불과하며, 이 파일 쌍에 접근할 수 있는 사람은 Kubernetes 환경을 위한 모든 인증서에 서명할 수 있다.
 
-#### Kubernetes has a built-in certificates API that can do this for you. 
-- With the certificate API, we now send a certificate signing request (CSR) directly to kubernetes through an API call.
+#### Kubernetes에는 이를 수행할 수 있는 내장 인증서 API가 있다. 
+- 인증서 API를 사용하여 이제 인증서 서명 요청(CSR)을 API 호출을 통해 Kubernetes에 직접 전송한다.
    
   ![csr](../../images/csr.PNG)
    
-#### This certificate can then be extracted and shared with the user.
-- A user first creates a key
+#### 이 인증서는 추출되어 사용자와 공유될 수 있다.
+- 사용자는 먼저 키를 생성한다.
   ```
   $ openssl genrsa -out jane.key 2048
   ```
-- Generates a CSR
+- CSR을 생성한다.
   ```
   $ openssl req -new -key jane.key -subj "/CN=jane" -out jane.csr 
   ```
-- Sends the request to the administrator and the adminsitrator takes the key and creates a CSR object, with kind as "CertificateSigningRequest" and a encoded "jane.csr"
+- 요청을 관리자에게 전송하고, 관리자는 키를 가져와 CSR 객체를 생성하며, 종류는 "CertificateSigningRequest"이고 인코딩된 "jane.csr"을 포함한다.
   ```
   apiVersion: certificates.k8s.io/v1beta1
   kind: CertificateSigningRequest
@@ -36,42 +36,38 @@ In this section, we will take a look at how to manage certificates and certifica
     request:
       <certificate-goes-here>
   ```
-  $ cat jane.csr |base64 
-  $ kubectl create -f jane.yaml
-  ```
- ![csr1](../../images/csr1.PNG)
+  - `$ cat jane.csr | base64 ` : request 에는 base64로 인코딩된 sign 요청 유저의 `.csr` 이 들어가야함.
+```
+$ kubectl create -f jane.yaml
+```
+![csr1](../../images/csr1.PNG)
   
-- To list the csr's
+- CSR 목록을 나열한다.
   ```
   $ kubectl get csr
   ```
-- Approve the request
+- 요청을 승인한다.
   ```
   $ kubectl certificate approve jane
   ```
-- To view the certificate
+- 인증서를 보기 위해
   ```
   $ kubectl get csr jane -o yaml
   ```
-- To decode it
+- 이를 디코드하기 위해
   ```
   $ echo "<certificate>" |base64 --decode
   ```
-  
   ![csr2](../../images/csr2.PNG)
   
-#### All the certificate releated operations are carried out by the controller manager. 
-- If anyone has to sign the certificates they need the CA Servers, root certificate and private key. The controller manager configuration has two options where you can specify this.
+#### 모든 인증서 관련 작업은 컨트롤러 매니저에 의해 수행된다. 
+- 인증서에 서명해야 하는 경우 CA 서버, 루트 인증서 및 개인 키가 필요하다. 컨트롤러 매니저 구성에는 이를 지정할 수 있는 두 가지 옵션이 있다.
 
   ![csr3](../../images/csr3.PNG)
   
   ![csr4](../../images/csr4.PNG)
+  kube-controller-manager 안에 CA Public key, CA Private Key 를 지정하는 옵션이 있음.
   
-  
-#### K8s Reference Docs
+#### K8s 참조 문서
 - https://kubernetes.io/docs/reference/access-authn-authz/certificate-signing-requests/
 - https://kubernetes.io/docs/tasks/tls/managing-tls-in-a-cluster/
- 
-  
-
-

@@ -1,6 +1,9 @@
 # Practice Test - Practice Test Service Accounts
   - Take me to [Practice Test](https://uklabs.kodekloud.com/topic/practice-test-service-accounts-2/)
 
+### 풀이
+
+
 Solutions to the Practice Test Service Accounts
 1.  <details>
     <summary>How many service accounts exist in the default namespace?</summary>

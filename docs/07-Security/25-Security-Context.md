@@ -1,23 +1,28 @@
 # Security Context
-  - Take me to [Video Tutorial](https://kodekloud.com/topic/security-contexts-2/)
+  - [비디오 튜토리얼](https://kodekloud.com/topic/security-contexts-2/)로 이동
   
-In this section, we will take a look at security context
+이 섹션에서는 security context(보안 컨텍스트)에 대해 살펴본다.
 
-## Container Security
+
+> [!NOTE]
+> - POD 수준에서 보안 설정하면 Conatiner Lvevel 로 전달.
+> - POD와 Container 둘 다 에서 보안설정 할 경우 **Container Configuration이 우선 순위**
+
+## Container Security(컨테이너 보안)
  ```
  $ docker run --user=1001 ubuntu sleep 3600
- $ docker run -cap-add MAC_ADMIN ubuntu
+ $ docker run --cap-add MAC_ADMIN ubuntu
  ```
  
  ![csec](../../images/csec.PNG)
  
-## Kubernetes Security
-- You may choose to configure the security settings at a container level or at a pod level.
+## Kubernetes Security(쿠버네티스 보안)
+- 컨테이너 수준 또는 포드 수준에서 보안 설정을 구성할 수 있다.
 
  ![ksec](../../images/ksec.PNG)
 
-## Security Context
-- To add security context on the container and a field called **`securityContext`** under the spec section.
+## Security Context(보안 컨텍스트)
+- 컨테이너에 보안 컨텍스트를 추가하려면 spec 섹션 아래에 **`securityContext`** 필드를 추가한다.
   ```
   apiVersion: v1
   kind: Pod
@@ -33,8 +38,7 @@ In this section, we will take a look at security context
   ```
   ![sxc1](../../images/sxc1.PNG)
   
-- To set the same context at the container level, then move the whole section under container section.
-  
+- 동일한 컨텍스트를 컨테이너 수준에서 설정하려면 전체 섹션을 컨테이너 섹션 아래로 이동한다.
   ```
   apiVersion: v1
   kind: Pod
@@ -50,7 +54,8 @@ In this section, we will take a look at security context
   ```
   ![sxc2](../../images/sxc2.PNG)
   
-- To add capabilities use the **`capabilities`** option
+- capabilities(권한)을 추가하려면 **`capabilities`** 옵션을 사용한다.
+	- 컨테이너 옵션으로만 줄 수 있고 POD 단위에선 안됨.
   ```
   apiVersion: v1
   kind: Pod
@@ -69,5 +74,5 @@ In this section, we will take a look at security context
   ![cap](../../images/cap.PNG)
   
   
-### K8s Reference Docs
+### K8s Reference Docs(쿠버네티스 참조 문서)
 - https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
