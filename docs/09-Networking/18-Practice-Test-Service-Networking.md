@@ -2,6 +2,18 @@
 
   - Take me to [Practice Test](https://kodekloud.com/topic/practice-test-service-networking/)
 
+### 풀이
+- node의 ip 범위 확인
+	- `kubectl get nodes -o wide` 로 node에 할당된 ip주소 확인
+	- `ip addr` 로 node 에 할당된 주소를 찾고 CIDR(IP 주소 `/` ) 를 확인하여 ip 범위 확인
+- pod의 ip 범위 확인
+	- `kubectl get nodes --all-namespaces -o wide` 로 network plugin 확인
+	- `kubectl logs <weave-pods-name> -n kube-system` 의 로그에서 `ipalloc` 항목 확인
+	- ![](images/18-Practice-Test-Service-Networking.png)
+- Service의 ip 범위 확인
+	- `cat /etc/kubernetes/manifests/kube-apiserver.yaml` 으로 `kube-apiserver` config 확인
+	- ![](images/18-Practice-Test-Service-Networking-2.png)
+- **`describe`로 뭔가 안나올때는 `logs` 도 확인하자.**
 #### Solution 
 
 1. <details>

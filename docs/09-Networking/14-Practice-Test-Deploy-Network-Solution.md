@@ -3,7 +3,6 @@
   - Take me to [Practice Test](https://kodekloud.com/topic/practice-test-deploy-network-solution/)
 
 #### Solution
-
   1. <details>
       <summary>We have deployed an application called app in the default namespace. What is the state of the pod?</summary>
 

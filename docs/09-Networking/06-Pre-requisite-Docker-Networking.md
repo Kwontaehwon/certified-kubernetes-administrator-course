@@ -1,46 +1,40 @@
 # Pre-requisite Docker Networking
-
   - Take me to [Lecture](https://kodekloud.com/topic/prerequsite-docker-networking/)
 
 In this section, we will take a look at **Docker Networking**
 
 ## None Network
-
 - Running docker container with `none` network
-
+	- 어떤 네트워크에도 속하지 않고 외부, 심지어 서로도 접근할 수 없음.
 ```
 $ docker run --network none nginx
 ```
 
 ## Host Network
-
 - Running docker container with `host` network
-
+	- 80포트로 열 경우 바로 배포 됨.
 ```
 $ docker run --network host nginx
 ```
 
 ## Bridge Network
-
+![](images/06-Pre-requisite-Docker-Networking.png)
 - Running docker container with `bridge` network
-
+	- 내부 Private Network 가 생성되며, 이 기본 값은 `172.17.0.0` 임.
 ```
 $ docker run --network bridge nginx
 ```
 
 ## List the Docker Network
-
 ```
 $ docker network ls
 NETWORK ID          NAME                DRIVER              SCOPE
 4974cba36c8e        bridge              bridge              local
 0e7b30a6c996        host                host                local
 a4b19b17d2c5        none                null                local
-
 ```
 
 ## To view the Network Device on the Host  
-
 ```
 $ ip link
 or
@@ -48,15 +42,14 @@ $ ip link show docker0
 3: docker0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN mode DEFAULT group default
     link/ether 02:42:cf:c3:df:f5 brd ff:ff:ff:ff:ff:ff
 ```
+`docker0` 라는 이름으로 네트워크가 생성됨.
 
 - With the help of `ip link add` command to type set `bridge` to `docker0`
-
 ```
 $ ip link add docker0 type bridge
 ```
 
 ## To view the IP Addr of the interface docker0
-
 ```
 $ ip addr
 or
@@ -66,15 +59,15 @@ $ ip addr show docker0
     inet 172.18.0.1/24 brd 172.18.0.255 scope global docker0
        valid_lft forever preferred_lft forever
 ```
+![](images/06-Pre-requisite-Docker-Networking-1.png)
 
-## Run the command to create a Docker Container
-
+## Run the command to create a Docker Container 
 ```
 $ docker run nginx
 ```
+컨테이너가 생성될 때 마다 Network namespace 를 만든다.
 
 ## To list the Network Namespace
-
 ```
 $ ip netns
 1c452d473e2a (id: 2)
@@ -110,18 +103,22 @@ $ ip -n 04acb487a641 addr
     inet 10.244.0.2/24 scope global eth0
        valid_lft forever preferred_lft forever
 ```
+![](images/06-Pre-requisite-Docker-Networking-2.png)
+앞 전 강의에서 배운 것처럼 컨테이너의 Network namespace 를 Bridge 와 연결.
+
+![](images/06-Pre-requisite-Docker-Networking-3.png)
+- 컨테이너 - Bridge 의 인터페이스 쌍은 숫자를 이용하여 식별 가능.
+	- 이어지는 7-8 / 9-10 / 11-12 가 한 쌍
+
 
 ## Port Mapping
-
 - Creating a docker container.
-
 ```
 $ docker run -itd --name nginx nginx
 d74ca9d57c1d8983db2c590df2fdd109e07e1972d6b361a6ecad8a942af5bf7e
 ```
 
 - Inspect the docker container to view the IPAddress.
-
 ```
 $ docker inspect nginx | grep -w IPAddress
             "IPAddress": "172.18.0.6",
@@ -129,7 +126,6 @@ $ docker inspect nginx | grep -w IPAddress
 ```
 
 - Accessing web page with the `curl` command.
-
 ```
 $ curl --head  http://172.18.0.6:80
 HTTP/1.1 200 OK
@@ -137,14 +133,14 @@ Server: nginx/1.19.2
 ```
 
 - Port Mapping to docker container
-
 ```
 $ docker run -itd --name nginx -p 8080:80 nginx
 e7387bbb2e2b6cc1d2096a080445a6b83f2faeb30be74c41741fe7891402f6b6
 ```
+![](images/06-Pre-requisite-Docker-Networking-4.png)
+**Port Mapping** 을 통해 외부에서도 Host의 컨테이너에 접근 할 수 있음.
 
 - Inspecting docker container to view the assgined ports.
-
 ```
 $ docker inspect nginx | grep -w -A5 Ports
 
@@ -156,8 +152,8 @@ $ docker inspect nginx | grep -w -A5 Ports
                     }
 
 ```
-- To view the IP Addr of the host system
 
+- To view the IP Addr of the host system
 ```
 $ ip a
 
@@ -169,7 +165,6 @@ Server: nginx/1.19.2
 ```
 
 - Configuring **iptables nat** rules
-
 ```
 $ iptables \
          -t nat \
@@ -187,14 +182,13 @@ $ iptables \
       --dport 8080 \
       --to-destination 172.18.0.6:80
 ```
+앞 강의에서 직접 NAT table 을 구성했던 것 처럼
+Port Mapping을 하면 Docker 가 자동으로 NAT table 을 구성한다.
 
 ## List the Iptables rules
-
 ```
 $ iptables -nvL -t nat
 ```
-
-
 
 
 #### References docs

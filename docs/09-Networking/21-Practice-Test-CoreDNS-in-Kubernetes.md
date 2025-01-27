@@ -1,6 +1,9 @@
 # Practice Test CoreDNS in Kubernetes
-
   - Take me to [Practice Test](https://kodekloud.com/topic/practice-test-coredns-in-kubernetes/)
+
+### 풀이
+- `kubectl exec -it hr -- nslookup mysql.payroll`
+	- 특정 POD에서 다른 POD로 연결 되는지 확인
 
 #### Solution 
 

@@ -1,9 +1,27 @@
 # Practice Test - Explore Env
-
   - Take me to [Practice Test](https://kodekloud.com/topic/practice-test-explore-environment/)
 
-#### Solution
+### 풀이
+- `bridge` type 인터페이스 확인
+	- `ip link show type bridge`
+	  ![](images/09-Practice-Test-Explore-Env.png)
+- 인터넷 접속 시 사용하는 Gateway
+	- `ip route show default`
+	  ![](images/09-Practice-Test-Explore-Env-1.png)
+- 열려있는 포트 확인
+	- `netstat -nplt`
+		- `-n` : hostname, port 를 숫자로 표시
+		- `-p` : PID/program name 표시
+		- `-l` : LISTENING 중인 server socket 만 표시
+		- `-t` : TCP 만 표시
+- Connection 갯수 확인
+	- `netstat -npa`
+		- `-a` : 모든 connect 확인 (--all)
+- ETCD 2379 포트가 2380보다 많은 이유
+	- `2379` 포트는 모든 control plane 컴포넌트들이 연결하는 포트.
+	- `2380` 포트는 etcd peer-to-peer connectivity
 
+#### Solution
 1. <details>
    <summary>How many nodes are part of this cluster?</summary>
 

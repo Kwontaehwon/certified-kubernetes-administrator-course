@@ -8,63 +8,49 @@
         "type": "tabs",
         "children": [
           {
-            "id": "f5622ce6db0e9afb",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "docs/07-Security/23-Image-Security.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "23-Image-Security"
-            }
-          },
-          {
-            "id": "20a314aa358950bb",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "docs/07-Security/27-Network-Policies.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "27-Network-Policies"
-            }
-          },
-          {
             "id": "9b9ba9a71342f8b2",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "docs/07-Security/19-Cluster-Roles.md",
+                "file": "docs/09-Networking/15-ipam-weave.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "19-Cluster-Roles"
+              "title": "15-ipam-weave"
             }
           },
           {
-            "id": "8e8e53261d3f7e5e",
+            "id": "78c8c479de970bfd",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "docs/08-Storage/12-Storage-Class.md",
+                "file": "docs/02-Core-Concepts/20-Services.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "12-Storage-Class"
+              "title": "20-Services"
+            }
+          },
+          {
+            "id": "5a378193f0d60caf",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "docs/09-Networking/23-Ingress-Annotations-and-rewrite-target.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "23-Ingress-Annotations-and-rewrite-target"
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -95,7 +81,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "side",
+                "query": "nslookup",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -229,45 +215,46 @@
       "callout-manager:Insert Callout": false
     }
   },
-  "active": "8e8e53261d3f7e5e",
+  "active": "5a378193f0d60caf",
   "lastOpenFiles": [
-    "docs/08-Storage/images/12-Storage-Class.png",
-    "docs/08-Storage/07-Persistent-Volumes.md",
-    "docs/08-Storage/08-Persistent-Volume-Claims.md",
-    "docs/08-Storage/06-Volumes.md",
-    "docs/08-Storage/05-Container Storage-Interface.md",
-    "docs/08-Storage/images/05-Container Storage-Interface.png",
-    "docs/08-Storage/04-Volume-Driver-Plugins-in-Docker.md",
-    "docs/08-Storage/03-Storage-in-Docker.md",
-    "docs/08-Storage/images/03-Storage-in-Docker-1.png",
-    "docs/08-Storage/images/03-Storage-in-Docker.png",
-    "docs/08-Storage/images",
-    "docs/08-Storage/02-Introduction-to-Docker-Storage.md",
-    "docs/08-Storage/01-Storage-Section-Introduction.md",
-    "docs/07-Security/30-Download-Presentation-Deck.md",
-    "docs/07-Security/29-kubectx-and-kubens-commands.md",
+    "docs/09-Networking/22-Ingress.md",
+    "docs/09-Networking/images/22-Ingress-11.png",
+    "docs/09-Networking/23-Ingress-Annotations-and-rewrite-target.md",
+    "docs/09-Networking/images/22-Ingress-10.png",
+    "docs/09-Networking/images/22-Ingress-9.png",
+    "docs/09-Networking/images/22-Ingress-8.png",
+    "docs/09-Networking/images/22-Ingress-7.png",
+    "docs/09-Networking/images/22-Ingress-6.png",
+    "docs/09-Networking/images/22-Ingress-5.png",
+    "docs/09-Networking/images/22-Ingress-4.png",
+    "docs/09-Networking/images/22-Ingress-3.png",
+    "docs/09-Networking/images/22-Ingress-2.png",
+    "docs/02-Core-Concepts/20-Services.md",
     "docs/my-core-tip.md",
+    "docs/09-Networking/03-Pre-requisite-DNS.md",
+    "docs/09-Networking/21-Practice-Test-CoreDNS-in-Kubernetes.md",
+    "docs/09-Networking/20-CoreDNS-in-Kubernetes.md",
+    "docs/09-Networking/19-DNS-in-kubernetes.md",
+    "docs/09-Networking/18-Practice-Test-Service-Networking.md",
+    "docs/09-Networking/04-Pre-requisite-CoreDNS.md",
+    "docs/09-Networking/17-Service-Networking.md",
+    "docs/09-Networking/15-ipam-weave.md",
+    "docs/09-Networking/16-Practice-Test-Networking-weave.md",
+    "docs/09-Networking/14-Practice-Test-Deploy-Network-Solution.md",
+    "docs/09-Networking/13-Practice-Test-CNI-weave.md",
     "docs/07-Security/27-Network-Policies.md",
-    "docs/07-Security/images/27-Network-Policies-2.png",
-    "docs/07-Security/images/27-Network-Policies-1.png",
-    "docs/07-Security/images/27-Network-Policies.png",
-    "docs/07-Security/26-Practice-Test-Security-Context.md",
-    "docs/07-Security/images/26-Practice-Test-Security-Context.png",
-    "docs/07-Security/25-Security-Context.md",
-    "docs/07-Security/21-Service Accounts.md",
-    "docs/07-Security/25-(Pre-requisite) Security in Docker.md",
-    "docs/07-Security/24-Practice-Test-Image-Security.md",
     "docs/07-Security/23-Image-Security.md",
-    "docs/07-Security/22-Practice-Test-Service-Accounts.md",
+    "docs/09-Networking/12-CNI-weave.md",
+    "docs/09-Networking/11-CNI-in-Kubernetes.md",
     "docs/07-Security/19-Cluster-Roles.md",
-    "images/23-(Pre-requisite) Security in Docker-4.png",
-    "images/23-(Pre-requisite) Security in Docker-3.png",
-    "images/23-(Pre-requisite) Security in Docker-2.png",
-    "docs/07-Security/17-RBAC.md",
-    "docs/07-Security/20-Practice-Test-Cluster-Roles.md",
-    "docs/07-Security/07-TLS-in-Kubernetes-Certificate-Creation.md",
-    "docs/05-Application-Lifecycle-Management/08-Configure-ConfigMaps-in-Applications.md",
-    "docs/07-Security/18-Practice-Test-RBAC.md",
+    "Untitled.canvas",
+    "docs/09-Networking/10-Pod-Networking.md",
+    "docs/09-Networking/09-Practice-Test-Explore-Env.md",
+    "docs/17-tips-and-tricks/README.md",
+    "docs/09-Networking/08-Cluster-Networking.md",
+    "docs/09-Networking/07-Pre-requisite-CNI.md",
+    "docs/09-Networking/images",
+    "docs/08-Storage/images",
     "docs/07-Security/images",
     "docs/06-Cluster-Maintenance/images",
     "docs/05-Application-Lifecycle-Management/images",
@@ -275,7 +262,6 @@
     "my-extension/styles.css",
     "my-extension/popup.js",
     "my-extension/popup.html",
-    "my-extension/manifest.json",
-    "my-extension/content.js"
+    "my-extension/manifest.json"
   ]
 }

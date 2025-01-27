@@ -1,13 +1,31 @@
 # DNS in Kubernetes
-
   - Take me to [Lecture](https://kodekloud.com/topic/dns-in-kubernetes/)
-
 In this section, we will take a look at **DNS in the Kubernetes Cluster**
 
+## 강의 정리
+- kubernetes 는 cluster를 setup 할 때 built-in DNS 서버를 배포함.
+	- DNS 관점에서는 객체가 어느 노드에 위치하는지는 상관없음.
+
+### DNS in `Service`
+![](images/19-DNS-in-kubernetes-1.png)
+Root - Type - Namespace - Hostname 로 세분화되는 구조를 가짐.
+-> 그래서 Full 주소는 `<Hostname>.<Namespace>.<Type>.<Root>`
+- Root 의 default 값은 `cluster.local`
+	- 따로 설정하지 않는 이상 Pod, Service 상관없이 고정
+- Type : `svc`
+- Namespace
+- Hostname
+
+### DNS in `POD`
+![](images/19-DNS-in-kubernetes-2.png)
+- default로는 POD가 DNS에 저장되지 않음.
+	- 따로 옵션을 줘야함.
+- DNS Table에 저장되는 방식
+	- Type : `pod`
+	- Hostname : Pod IP 주소의 `.` 을 `-`로 변경한 값
+
 ## Pod DNS Record
-
 - The following DNS resolution:
-
 ```
 <POD-IP-ADDRESS>.<namespace-name>.pod.cluster.local
 ```
@@ -47,9 +65,7 @@ Server: nginx/1.19.2
 ```
 
 ## Service DNS Record
-
 - The following DNS resolution:
-
 ```
 <service-name>.<namespace-name>.svc.cluster.local
 ```
@@ -60,7 +76,6 @@ Server: nginx/1.19.2
 web-service.default.svc.cluster.local
 ```
 - Pod, Service is located in the `apps` namespace
-
 ```
 # Expose the nginx Pod
 $ kubectl expose pod nginx --name=nginx-service --port 80 --namespace apps
@@ -87,9 +102,6 @@ Server: nginx/1.19.2
 
 ```
 
-
-
 #### References Docs
-
 - https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/
 - https://kubernetes.io/docs/tasks/administer-cluster/dns-debugging-resolution/

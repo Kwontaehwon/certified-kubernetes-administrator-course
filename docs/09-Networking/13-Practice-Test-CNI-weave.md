@@ -1,6 +1,13 @@
 # Practice Test - CNI weave
 
   - Take me to [Practice Test](https://kodekloud.com/topic/practice-test-cni-weave/)
+### 풀이
+- `kubelet` 은 POD 가 아니다. -> Daemon Service
+	- 애초에 POD 면 `kubelet` 이 POD를 배포할 수 없다.
+	- 그래서 `kubelet` 에 대한 정보를 얻고 싶다면 `ps -aux | grep -i kubelet` 으로 쿼리
+- Plugin binary : `opt/cni/bin`
+- Plugin Config File : `etc/cni/net.d`
+	- 여기에 있는 config file이 실제 k8s 에서 실행되는 것.
 
 #### Solution
 
