@@ -1,4 +1,4 @@
-********# YAML 파일을 사용하여 파드 생성하기
+# YAML 파일을 사용하여 파드 생성하기
 
 ### POD 생성 by .yaml
 ![alt text](image-1.png)

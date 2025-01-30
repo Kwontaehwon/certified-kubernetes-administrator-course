@@ -5,13 +5,11 @@ In this section, we will take a look at kube-scheduler.
 
 #### kube-scheduler is responsible for scheduling pods on nodes.  
 - The kube-scheduler is only responsible for deciding which pod goes on which node. It doesn't actually place the pod on the nodes, that's the job of the **`kubelet`**.
-
   ![kube-scheduler1](../../images/kube-scheduler1.PNG)
   
 #### Why do you need a Scheduler?
 - 하드웨어 리소스를 효율적으로 사용하기 위해 파드를 적절한 노드에 배치하는 역할을 합니다.
 - 특정 노드에 들어가야만 하는 파드가 있을 수 있습니다.
-
   ![kube-scheduler2](../../images/kube-scheduler2.PNG)
 1. Fliter Node
   - 파드가 배치될 수 있는 노드를 필터링
@@ -25,7 +23,6 @@ In this section, we will take a look at kube-scheduler.
   ```
 - Extract it
 - Run it as a service
-
   ![kube-scheduler3](../../images/kube-scheduler3.PNG)
   
 ## View kube-scheduler options - kubeadm

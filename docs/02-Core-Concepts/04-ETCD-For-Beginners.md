@@ -16,7 +16,6 @@
      ![relational-dbs](../../images/relational-dbs.PNG)
 
    - A Key-Value Store stores information in a Key and Value format.
-
      ![key-value](../../images/key-value.PNG)
 
 ## Install ETCD

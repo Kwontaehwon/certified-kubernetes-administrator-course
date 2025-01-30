@@ -1,34 +1,31 @@
 # Docker vs. ContainerD
+이 섹션에서는 Docker와 ContainerD의 차이점을 살펴본다.
 
-In this section we will look at the differences between Docker and ContainerD
-
-
-So you’re going to come across Docker and `containerd` many times. Going forward, when you read older blogs or documentation pages , you’ll see Docker mentioned along with Kubernetes and when you read newer blogs you’ll see `containerd` and you’ll wonder what the difference is between the two. And there are a few CLI tools like `ctr`, `crictl` or `nerdctl` and you’ll wonder what are these CLI tools and which one should you be using, so that’s what I’m going to explain.
+Docker와 `containerd`는 여러 번 접하게 될 것이다. 앞으로 오래된 블로그나 문서 페이지를 읽으면 Kubernetes와 함께 Docker가 언급되는 것을 볼 것이고, 새로운 블로그를 읽으면 `containerd`가 등장할 것이며 두 가지의 차이점이 궁금해질 것이다. 또한 `ctr`, `crictl`, `nerdctl`과 같은 몇 가지 CLI 도구가 있으며, 이 도구들이 무엇인지, 어떤 것을 사용해야 하는지에 대해 설명할 것이다.
 
 ![](../../images/02-03-01.png)
 
-Let’s go back in time to the beginning of the container era. In the beginning, there was just Docker. There were a few other tools like Rocket ([rkt](https://www.redhat.com/en/topics/containers/what-is-rkt)), but Docker’s user experience made working with containers super simple and hence Docker became the most dominant container tool. And then came Kubernetes to orchestrate Docker so Kubernetes was built to orchestrate Docker specifically in the beginning so Docker and Kubernetes were tightly coupled and back then Kubernetes only worked with Docker and didn't support any other container solutions.
+컨테이너 시대의 시작으로 돌아가 보자. 처음에는 Docker만 있었다. Rocket([rkt](https://www.redhat.com/en/topics/containers/what-is-rkt))와 같은 몇 가지 도구가 있었지만, Docker의 사용자 경험은 컨테이너 작업을 매우 간단하게 만들어 주었고, 따라서 Docker는 가장 지배적인 컨테이너 도구가 되었다. 그리고 Kubernetes가 Docker를 오케스트레이션하기 위해 등장했다. Kubernetes는 처음에 Docker를 오케스트레이션하기 위해 만들어졌기 때문에 Docker와 Kubernetes는 밀접하게 결합되어 있었고, 그 당시 Kubernetes는 Docker와만 작동하며 다른 컨테이너 솔루션을 지원하지 않았다.
 
 ![](../../images/02-03-02.png)
 
-And then Kubernetes grew in popularity as a container orchestrator and now other container runtimes like `rkt` wanted in so Kubernetes users needed it to work with container runtimes that are other than just Docker, and so Kubernetes introduced an interface called container runtime interface or CRI, so CRI allowed any vendor to work as a container runtime for Kubernetes as long as they adhere to the OCI standards.
-So OCI stands for Open Container Initiative and it consists of an image spec and a runtime spec. Image spec means the specifications on how an image should be built. It defines the specifications on how an image should be built and the runtime spec defines the standards on how any container runtime should be developed so keeping these standards in mind, anyone can build a container runtime that can be used by anybody to work with Kubernetes, so that was the idea.
+Kubernetes는 컨테이너 오케스트레이터로서 인기를 얻었고, 이제 `rkt`와 같은 다른 컨테이너 런타임도 필요해졌다. Kubernetes 사용자는 Docker 외의 다른 컨테이너 런타임과도 작동해야 했고, 그래서 Kubernetes는 컨테이너 런타임 인터페이스(Container Runtime Interface, CRI)라는 인터페이스를 도입했다. CRI는 공급업체가 OCI(Open Container Initiative) 표준을 준수하는 한 Kubernetes의 컨테이너 런타임으로 작동할 수 있도록 허용했다. OCI는 이미지 사양과 런타임 사양으로 구성된다. 이미지 사양은 이미지가 어떻게 구축되어야 하는지에 대한 사양을 의미하며, 런타임 사양은 모든 컨테이너 런타임이 개발되어야 하는 표준을 정의한다. 이러한 표준을 염두에 두고 누구나 Kubernetes와 함께 사용할 수 있는 컨테이너 런타임을 구축할 수 있다. 이것이 아이디어였다.
 
 ![](../../images/02-03-03.png)
 
-So `rkt` and other container runtimes that adhere to the OCI standards were now supported as container runtimes for Kubernetes via the CRI, however Docker wasn’t built to support  the CRI standards, remember Docker was built way before CRI was introduced and Docker still was the dominant container tool used by most, so Kubernetes had to continue to support Docker as well and so Kubernetes introduced what is known as `dockershim` which was a hacky but temporary way to support Docker outside of the CRI.
+`rkt`와 OCI 표준을 준수하는 다른 컨테이너 런타임은 이제 CRI를 통해 Kubernetes의 컨테이너 런타임으로 지원되지만, Docker는 CRI 표준을 지원하도록 설계되지 않았다. Docker는 CRI가 도입되기 훨씬 이전에 만들어졌고, 여전히 대부분의 사용자가 사용하는 지배적인 컨테이너 도구였다. 따라서 Kubernetes는 Docker에 대한 지원을 계속해야 했고, 이를 위해 `dockershim`이라는 임시적인 방법을 도입했다. 이는 CRI 외부에서 Docker를 지원하기 위한 해킹 방식이었다.
 
 ![](../../images/02-03-04.png)
 
-So while most other container runtimes worked to the CRI, Docker continued to work without it, so now you see Docker isn’t just a container runtime alone. Docker consists of multiple tools that are put together, for example the Docker CLI, the Docker API, the build tools that help in building images. There was support for volumes, security, and finally the container runtime called `runc`, and the daemon that managed `runc`, that was called `containerd`. So containerd is CRI compatible and can work directly with Kubernetes as all other runtimes, so containerd can be used as a runtime on its own separate from Docker.
+대부분의 다른 컨테이너 런타임이 CRI에 맞춰 작동하는 동안, Docker는 계속해서 CRI 없이 작동했다. 이제 Docker는 단순한 컨테이너 런타임이 아님을 알 수 있다. Docker는 여러 도구로 구성되어 있으며, 예를 들어 Docker CLI, Docker API, 이미지를 구축하는 데 도움을 주는 빌드 도구가 있다. 볼륨, 보안 지원이 있었고, 마지막으로 `runc`라는 컨테이너 런타임과 이를 관리하는 데몬인 `containerd`가 있었다. 따라서 containerd는 CRI와 호환되며 다른 런타임과 마찬가지로 Kubernetes와 직접 작동할 수 있다. containerd는 Docker와 분리된 런타임으로 사용할 수 있다.
 
 ![](../../images/02-03-05.png)
 
-So now you have containerd as a separate runtime and Docker separately, so Kubernetes continued to maintain support for Docker engine directly however having to maintain the dockershim was an unnecessary effort and added complications so it was decided in v1.24 release of Kubernetes to remove dockershim completely and so support for Docker was removed. But you see all the images that were built before Docker was removed so all the Docker images continued to work because Docker followed the image spec from the OCI standards so all the images built by Docker follow the standard so they continued to work with containerd but Docker itself was removed as a supported runtime from Kubernetes. So that’s kind of the whole story, now let’s look into containerd more specifically.
+이제 containerd는 별도의 런타임으로 존재하고 Docker는 별도로 존재한다. Kubernetes는 Docker 엔진에 대한 지원을 계속 유지했지만, dockershim을 유지하는 것은 불필요한 노력과 복잡성을 초래했다. 그래서 Kubernetes의 v1.24 릴리스에서 dockershim을 완전히 제거하기로 결정했고, Docker에 대한 지원이 제거되었다. 그러나 Docker가 제거되기 전에 구축된 모든 이미지는 여전히 작동한다. Docker는 OCI 표준의 이미지 사양을 따르기 때문에 Docker로 구축된 모든 이미지는 표준을 따르며 containerd와 계속 작동할 수 있다. 그러나 Docker 자체는 Kubernetes에서 지원되는 런타임으로부터 제거되었다. 이것이 전체 이야기이며, 이제 containerd에 대해 더 구체적으로 살펴보자.
 
 ![](../../images/02-03-06.png)
 
-So containerd although is part of Docker, is a separate project on its own now and is a member of [CNCF](https://www.cncf.io/) with the [graduated](https://www.cncf.io/projects/) status, so you can now install containerd on its own without having to install Docker itself so if you don’t really need Docker’s other features you could ideally just install containerd alone. So typically we ran containers using the `docker run` command when we had Docker and if Docker isn’t installed then how do you run containers with just containerd? Now, once you install containerd it comes with a command line tool called [ctr](https://github.com/projectatomic/containerd/blob/master/docs/cli.md#client-cli), and this tool is solely made for debugging containerd and is not very user friendly as it only supports a limited set of features and this is all you can see in the documentation pages for this particular tool. So for the other than limited set of features that require any other way you want to interact with containerd you have to rely on making API calls directly which is not the most user friendly way for us to operate.
+containerd는 Docker의 일부이지만 이제는 독립적인 프로젝트이며 [CNCF](https://www.cncf.io/)의 [졸업](https://www.cncf.io/projects/) 상태의 회원이다. 이제 Docker를 설치하지 않고도 containerd를 독립적으로 설치할 수 있으며, Docker의 다른 기능이 필요하지 않다면 containerd만 설치하는 것이 이상적이다. 일반적으로 Docker가 있을 때는 `docker run` 명령을 사용하여 컨테이너를 실행했지만, Docker가 설치되지 않은 경우 containerd만으로 어떻게 컨테이너를 실행할 수 있을까? containerd를 설치하면 [ctr](https://github.com/projectatomic/containerd/blob/master/docs/cli.md#client-cli)라는 명령줄 도구가 제공되며, 이 도구는 containerd를 디버깅하기 위해 만들어졌고, 사용자 친화적이지 않으며 제한된 기능만 지원한다. 이 도구에 대한 문서 페이지에서 볼 수 있는 모든 것이 그것이다. 제한된 기능 외에 containerd와 상호작용하려면 API 호출을 직접 만들어야 하며, 이는 사용자 친화적인 방법이 아니다.
 
 So just to give you an idea, the `ctr` command can be used to perform basic container-related activities such as pull images, for example to pull redis image you would run
 

@@ -58,7 +58,7 @@
   
 ![nsl](../../images/nsl.PNG)
  
-- 이를 위해 **`Node Affinity`**와 **`Anti Affinity`**가 있습니다.
+- 이를 위해 **`Node Affinity`** 와 **`Anti Affinity`** 가 있습니다.
   
 #### K8s 참조 문서
 - https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodeselector

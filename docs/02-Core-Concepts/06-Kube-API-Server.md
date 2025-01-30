@@ -3,13 +3,14 @@
   
 이 섹션에서는 쿠버네티스의 kube-apiserver에 대해 알아보겠습니다.
 
-#### Kube-apiserver는 쿠버네티스의 핵심 구성 요소입니다.
-- Kube-apiserver는 **`인증`**, **`유효성 검사`**, ETCD 키-값 저장소의 데이터 **`검색`** 및 **`업데이트`**를 담당합니다. 실제로 kube-apiserver는 etcd 데이터 저장소와 직접 상호 작용하는 유일한 구성 요소입니다. kube-scheduler, kube-controller-manager, kubelet과 같은 다른 구성 요소들은 API 서버를 사용하여 클러스터의 각 영역을 업데이트합니다.
+#### `Kube-apiserver`는 쿠버네티스의 핵심 구성 요소입니다.
+- Kube-apiserver는 **`인증`**, **`유효성 검사`**, ETCD 의 데이터 **`검색`** 및 **`업데이트`** 를 담당
+- 실제로 kube-apiserver는 **etcd 와 직접 상호 작용하는 유일한 구성 요소**
+- kube-scheduler, kube-controller-manager, kubelet과 같은 다른 구성 요소들은 API 서버를 사용하여 클러스터의 각 영역을 업데이트합니다.
   
   ![post](../../images/post.PNG)
   
 ## kube-apiserver 설치하기
-
 - **`kubeadm`** 도구를 사용하여 kube-apiserver를 부트스트랩하는 경우에는 이것을 알 필요가 없지만, 수동으로 설정하는 경우 쿠버네티스 릴리스 페이지에서 kube-apiserver 바이너리를 다운로드할 수 있습니다.
   - 예: 여기서 kube-apiserver v1.13.0 바이너리를 다운로드할 수 있습니다 [kube-apiserver](https://storage.googleapis.com/kubernetes-release/release/v1.13.0/bin/linux/amd64/kube-apiserver)
     ```
