@@ -5,11 +5,11 @@
 
 쿠버네티스 클러스터 내에서 모든 파드는 다른 모든 파드에 도달할 수 있습니다. 이는 클러스터에 파드 네트워킹 클러스터를 배포함으로써 달성됩니다. 
 - Kube-Proxy는 쿠버네티스 클러스터의 각 노드에서 실행되는 프로세스입니다.
-  
   ![kube-proxy](../../images/kube-proxy.PNG)
 - 서비스는 실제 존재하는 것이 아니기 때문에 interface가 없음.
   - 단순히 k8s 메모리에 있는 가상의 구성요소
 - 각 노드에서 실행되는 `kube-proxy`가 새로운 서비스가 생성되면 각 노드에 대한 적절한 규칙을 생성하고 이를 전달함.
+	- [17-Service-Networking](docs/09-Networking/17-Service-Networking.md#^rkwg83)
 
 ## Kube-proxy 설치 - 수동
 - 쿠버네티스 릴리스 페이지에서 kube-proxy 바이너리를 다운로드하세요 [kube-proxy](https://storage.googleapis.com/kubernetes-release/release/v1.13.0/bin/linux/amd64/kube-proxy). 예를 들어 kube-proxy v1.13.0을 다운로드하려면 다음 명령어를 실행하세요.

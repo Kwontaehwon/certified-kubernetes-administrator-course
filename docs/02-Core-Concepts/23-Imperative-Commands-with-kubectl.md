@@ -36,14 +36,14 @@ kubectl replace --force -f nginx-deployment.yaml
 ### `kubectl apply` 적용 방식
 ![alt text](image-10.png)
 - Local file
-  - 스토리지에 저장
+	  - 스토리지에 저장
 - Kubernetes Live object configuration
-  - 쿠버네티스 메모리에 저장
-  - `kubectl.kubernetes.io/last-applied-configuration` 메타데이터 존재
-    - json 형태로 저장
-    - 마지막으로 적용된 configuration 저장
-    - 명령형 방식으로 선언하면 여기에 저장 같이 저장됨.
-      - 명령형 방식으로 적용한 이후 `yaml` 파일로 `apply`하려고 하면 명령형 방식이 우선이 되고 적용되지 않음.
+	  - 쿠버네티스 메모리에 저장
+	  - `kubectl.kubernetes.io/last-applied-configuration` 메타데이터 존재
+	    - json 형태로 저장
+	    - 마지막으로 적용된 configuration 저장
+	    - 명령형 방식으로 선언하면 여기에 저장 같이 저장됨.
+	      - 명령형 방식으로 적용한 이후 `yaml` 파일로 `apply`하려고 하면 명령형 방식이 우선이 되고 적용되지 않음.
 
 #### 예시
 1. kubectl apply -f https://k8s.io/examples/application/simple_deployment.yaml\
@@ -53,5 +53,7 @@ kubectl replace --force -f nginx-deployment.yaml
    - replicas still = 2
    - `last-applied-configuration` 에 명령어로 저장된 값이 저장되어 있기 때문.
 
-## **절대 명령형 방식과 선언형 방식을 동시에 사용하지 말아라.**
+> [!warning]
+> ### **절대 명령형 방식과 선언형 방식을 동시에 사용하지 말아라.**
+
    

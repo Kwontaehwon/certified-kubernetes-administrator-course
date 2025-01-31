@@ -1,7 +1,5 @@
 # Practice Test - ReplicaSets
   - Take me to [Practice Test](https://kodekloud.com/topic/practice-test-replicasets/)
-
-
 #### replica-set 수정
 ```
 kubectl scale rs new-replica-set --replicas 5

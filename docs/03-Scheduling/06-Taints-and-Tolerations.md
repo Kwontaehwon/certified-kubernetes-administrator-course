@@ -4,20 +4,19 @@
 이 섹션에서는 Taint와 Tolerations에 대해 살펴보겠습니다.
 - 파드와 노드의 관계 및 어떤 파드가 어떤 노드에 배치될 수 있는지를 제한하는 방법입니다.
 
-#### Taint와 Tolerations는 어떤 파드가 노드에 스케줄될 수 있는지에 대한 제한을 설정하는 데 사용됩니다.
-- 특정 Taint에 대해 관용이 있는 파드만 해당 노드에 스케줄됩니다.
-
+#### `Taint`와 `Tolerations`는 어떤 파드가 노드에 스케줄될 수 있는지에 대한 제한을 설정하는 데 사용됩니다.
+- 특정 Taint에 대해 Toleration이 있는 파드만 해당 노드에 스케줄됩니다.
   ![tandt](../../images/tandt.PNG)
   
 ## Taint
 - **`kubectl taint nodes`** 명령어를 사용하여 노드에 Taint를 추가합니다.
 
-  구문
+구문
   ```
   $ kubectl taint nodes <node-name> key=value:taint-effect
   ```
  
-  예시
+예시
   ```
   $ kubectl taint nodes node1 app=blue:NoSchedule
   ```
@@ -54,13 +53,13 @@
 
 #### **Taint와 Tolerations는 파드가 특정 노드로 가도록 지시하지 않습니다**. 
 #### 대신, 노드가 특정 Tolerations가 있는 파드만 수용하도록 지시합니다.
-- D가 Node 1 에 대한 Toleration을 가지고 있다고 해도 무조건 거기에 배치되는 것이 아님.
+- Pod가 Node1 에 대한 Toleration을 가지고 있다고 해도 무조건 거기에 배치되는 것이 아님.
   - 반드시 특정 Node에 배치되길 원한다면 `Node affinity` 사용
 ![alt text](image.png)
 
 
  
- #### Master Node의 Taint
+#### Master Node의 Taint
  - Master Node는 기본적으로 taint가 설정되어 있기 때문에 어떤 Pod도 스케줄되지 않음.
    - 수정은 가능하나 master Node에 배치하는 것이 Best Practice가 아님.
  - Taint를 보려면 아래 명령어를 실행

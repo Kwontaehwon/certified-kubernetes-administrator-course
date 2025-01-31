@@ -50,8 +50,8 @@ spec:
 	- 가상의 객체이고 특정 노드에 존재하지 않으며 Cluster 전체의 개념임.
 	- Network Interface를 가지던 Pod와 다르게 가상의 객체이므로 이러한 인터페이스를 가지지 않음.
 - 그래서 각 노드마다 Forwarding Table 을 가지고 있음.
-	- `Service` 의 주소에 해당하는 `IP:Port` 가 들어올 경우 그 `Service`에 연결되어 있는 Pod Forwarding 해줌.
-	- `Service`가 생성될 때 마다 **`kube-proxy`가 이러한 규칙을 생성하거나 삭제함.**
+- `Service` 의 주소에 해당하는 `IP:Port` 가 들어올 경우 그 `Service`에 연결되어 있는 Pod Forwarding 해줌.
+- `Service`가 생성될 때 마다 **`kube-proxy`가 이러한 규칙을 생성하거나 삭제함.** ^rkwg83
 
 ### `kube-proxy` Rule 생성
 ![](images/17-Service-Networking-3.png)

@@ -17,29 +17,29 @@ pods, replica-set 보다 상위 개념
 
 #### deployment를 어떻게 생성하나요?
 replica-set 에서 `kind` 만 Deployment로 바꾸면 됨.
-```
-    apiVersion: apps/v1
-    kind: Deployment
-    metadata:
-      name: myapp-deployment
-      labels:
-        app: myapp
-        type: front-end
-    spec:
-     template:
-        metadata:
-          name: myapp-pod
-          labels:
-            app: myapp
-            type: front-end
-        spec:
-         containers:
-         - name: nginx-container
-           image: nginx
-     replicas: 3
-     selector:
-       matchLabels:
-        type: front-end
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp-deployment
+  labels:
+	app: myapp
+	type: front-end
+spec:
+ template:
+	metadata:
+	  name: myapp-pod
+	  labels:
+		app: myapp
+		type: front-end
+	spec:
+	 containers:
+	 - name: nginx-container
+	   image: nginx
+ replicas: 3
+ selector:
+   matchLabels:
+	type: front-end
  ```
 - 파일이 준비되면 deployment 정의 파일을 사용하여 deployment를 생성합니다
   ```
@@ -49,15 +49,14 @@ replica-set 에서 `kind` 만 Deployment로 바꾸면 됨.
   ```
   $ kubectl get deployment
   ```
-- deployment는 자동으로 **`ReplicaSet`**을 생성합니다. ReplicaSet을 보려면
+- deployment는 자동으로 **`ReplicaSet`** 을 생성합니다. ReplicaSet을 보려면
   ```
   $ kubectl get replicaset
   ```
-- ReplicaSet은 최종적으로 **`POD`**들을 생성합니다. POD들을 보려면
+- ReplicaSet은 최종적으로 **`POD`** 들을 생성합니다. POD들을 보려면
   ```
   $ kubectl get pods
   ```
-    
   ![deployment1](../../images/deployment1.PNG)
   
 - 모든 오브젝트를 한 번에 보려면

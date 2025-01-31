@@ -8,22 +8,20 @@
 #### 컨트롤러는 쿠버네티스의 두뇌입니다
 
 ## Replica란 무엇이며 왜 replication controller가 필요한가요?
-
   ![rc](../../images/rc.PNG)
   
   저장된 수의 Pod가 항상 실행중인지를 확인 함.
-  
   ![rc1](../../images/rc1.PNG)
 
   Replication Controller는 여러 노드에 걸쳐있을 수 있음.
   
 ## ReplicaSet과 Replication Controller의 차이점
-- **`Replication Controller`**는 **`ReplicaSet`**으로 대체되고 있는 이전 기술입니다.
-- **`ReplicaSet`**은 복제를 설정하는 새로운 방법입니다.
+- **`Replication Controller`** 는 **`ReplicaSet`** 으로 대체되고 있는 이전 기술입니다.
+- **`ReplicaSet`** 은 복제를 설정하는 새로운 방법입니다.
 
 ## Replication Controller 생성하기
 
-## Replication Controller 정의 파일
+### Replication Controller yaml
   
    ![rc2](../../images/rc2.PNG)
   
@@ -64,8 +62,7 @@
     ![rc3](../../images/rc3.PNG)
     
 ## ReplicaSet 생성하기
-  
-## ReplicaSet 정의 파일
+### ReplicaSet yaml
 
    ![rs](../../images/rs.PNG)
 
@@ -93,6 +90,7 @@
        matchLabels:
         type: front-end
  ```
+
 #### ReplicaSet은 Replication Controller와 비교했을 때 selector 정의가 필요합니다.
 #### 또한 apiVersion이 apps/v1 임.
    
@@ -115,7 +113,7 @@
 #### 레이블과 셀렉터는 무엇이고, 왜 쿠버네티스에서 파드와 객체에 레이블을 붙이나요?
 ReplicaSet은 이미 생성되어 있는 파드에도 `Selector`를 이용하여 ReplicaSet을 생성할 수 있음. <br>
 -> 결국 ReplicaSet은 파드를 모니터링하고 관리하는 역할을 함.
-  ![labels](../../images/labels.PNG)
+  ![labels](../../images/labels.PNG) ^xenz1a
   
 ## ReplicaSet을 스케일하는 방법
 - ReplicaSet을 스케일하는 방법에는 여러 가지가 있습니다
