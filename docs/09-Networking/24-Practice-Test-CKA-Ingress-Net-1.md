@@ -2,6 +2,18 @@
 
   - Take me to [Practice Test](https://kodekloud.com/topic/practice-test-cka-ingress-networking-1/)
 
+### 풀이
+- Ingress Resource 의 정보를 얻기 위해서는 `kubectl get ingress`
+	- Ingress Resource 의 Type이 `Ingress` 이기 때문.
+	- `kubectl get all -A` 로 나오지 않음.
+- 11번 : Ingress Default 확인
+	- `kubectl get deploy ingress-nginx-controller -n ingress-nginx -o yaml` 로 controller에 정의된 default 를 확인해야함.
+- 마지막 문제 : `nginx.ingress.kubernetes.io/rewrite-target: /`
+	- [23-Ingress-Annotations-and-rewrite-target](23-Ingress-Annotations-and-rewrite-target.md)
+	- 각 서비스에 path 가 연결되어 있지 않다면, 각 서비스로 연결해주기 위해서는 위 옵션을 사용해야 한다. 
+		- ex. `http://<ingress-service>:<ingress-port>/watch` 가 들어오면, 
+		  `http://<watch-service>:<port>/` 로 변경하여 `watch-service` 로 변경해줌.
+			  - 만약 이 옵션을 사용하지 않으면 `http://<watch-service>:<port>/watch` 가 되어 연결되지 않음.
 #### Solution 
 
   1. Check the Solution

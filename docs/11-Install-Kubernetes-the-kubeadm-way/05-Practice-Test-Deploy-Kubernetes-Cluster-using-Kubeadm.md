@@ -1,9 +1,12 @@
 # Practice Test - Install kubernetes cluster using kubeadm tool
 
 If you want to build your own cluster, check these out:
-
 * [Kubeadm Clusters](../../kubeadm-clusters/)
 * [Managed Clusters](../../managed-clusters/)
+
+### 풀이
+- 쭉 한번 해보기 좋은 예시
+	- 해설강의 참조.
 
 # Solutions for KodeKloud lab practice test - Install Using Kubeadm
 

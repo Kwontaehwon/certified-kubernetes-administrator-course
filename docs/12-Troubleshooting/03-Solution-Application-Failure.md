@@ -2,6 +2,12 @@
 
   - Take me to [Practice Test](https://kodekloud.com/topic/practice-test-application-failure/) of the Application Failure
 
+### 풀이
+> [!check]
+> Deployments, Service 체크
+
+- 2번 : Service의 `targetPort`는 `get`으론 안보이고 `describe` 으로만 보임
+- 3번 : Service의 Selector
 ### Solution
 
 1.  <details>

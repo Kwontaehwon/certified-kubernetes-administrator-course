@@ -1,7 +1,9 @@
 ## 후기
 https://peterica.tistory.com/348
-
 https://taronko.tistory.com/17
+
+## 기출문제
+https://peterica.tistory.com/540
 
 ## Kubernetes
 ### Running POD, Deployment 수정 (udemy 68.)

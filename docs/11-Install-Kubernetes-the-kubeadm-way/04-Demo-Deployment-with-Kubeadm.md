@@ -2,6 +2,14 @@
 
 - Take me to [Lecture](https://kodekloud.com/topic/demo-deployment-with-kubeadm/)
 
+1. 모든 노드에 kubeadm 설치
+2. 모든 노드에 컨테이너 런타임 설치
+3. Cgroup driver 설치 및 컨테이너 런타임에 config 변경
+	1. v1.22 이후에는 systemd 가 default
+4. 3번 이후 컨테이너 런타임 restart
+5. kubeadm init
+	1. POD CIDR network 설정(default 사용하는 것이 network plugin구성할 때 편함)
+
 # Apple Silicon
 
 If you have an Apple M1 or M2 (Apple Silicon) machine, then please follow the separate instructions [here](../../apple-silicon/README.md).

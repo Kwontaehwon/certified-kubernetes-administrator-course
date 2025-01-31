@@ -2,6 +2,9 @@
 
   - Take me to [Practice Test](https://kodekloud.com/topic/practice-test-cka-ingress-networking-2/)
 
+### 풀이
+- ingress resource 생성 시 Service와 같은 namespace 에 위치하도록 정의
+
 #### Solution 
 
   1. Check the Solution
