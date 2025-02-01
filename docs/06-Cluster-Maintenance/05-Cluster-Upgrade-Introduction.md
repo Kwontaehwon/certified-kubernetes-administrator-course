@@ -38,7 +38,7 @@
   ```
   $ kubeadm upgrade apply v1.12.0
   ```
-- 'kubectl get nodes' 명령을 실행하면 이전 버전을 볼 수 있다. 이는 명령의 출력에서 API 서버에 등록된 각 노드의 kubelet 버전을 보여주고 API 서버 자체의 버전은 보여주지 않기 때문이다.  
+- `kubectl get nodes` 명령을 실행하면 이전 버전을 볼 수 있다. 이는 명령의 출력에서 API 서버에 등록된 각 노드의 kubelet 버전을 보여주고 API 서버 자체의 버전은 보여주지 않기 때문이다.  
   ```
   $ kubectl get nodes
   ```
@@ -87,7 +87,6 @@
   ![kubeu2](../../images/kubeu2.PNG)
   
 - 모든 워커 노드를 같은 방식으로 업그레이드
-
   ![kubeu3](../../images/kubeu3.PNG)
   
 

@@ -1,7 +1,7 @@
 # 도커 Command, Arguement
   - [비디오 튜토리얼](https://kodekloud.com/topic/commands-and-arguments-in-docker/)로 이동하기
   
-이 섹션에서는 도커의 명령어와 인수에 대해 살펴보겠습니다.
+이 섹션에서는 도커의 명령어와 Argument에 대해 살펴보겠습니다.
 
 - 도커 컨테이너를 실행하려면
   ```
@@ -20,7 +20,6 @@
   
 #### 가상 머신과 달리, 컨테이너는 운영 체제를 호스팅하기 위한 것이 아닙니다.
 - 컨테이너는 웹 서버, 애플리케이션 서버 또는 데이터베이스 서버의 인스턴스를 호스팅하는 등 특정 작업이나 프로세스를 실행하기 위한 것입니다.
-
   ![ex](../../images/ex.PNG)
 
 ### Dockerfile
@@ -48,7 +47,6 @@
   ```
   $ docker run ubuntu-sleeper
   ```
-  
   ![sleep2](../../images/sleep2.PNG)
   
 ## Entrypoint Instruction

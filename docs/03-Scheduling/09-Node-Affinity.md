@@ -1,9 +1,9 @@
-# 노드 친화성
+# Node Affinity
   - [비디오 튜토리얼](https://kodekloud.com/topic/node-affinity-2/)로 이동하기
   
-이 섹션에서는 Kubernetes의 "노드 친화성" 기능에 대해 설명합니다.
+이 섹션에서는 Kubernetes의 "Node Affinity" 기능에 대해 설명합니다.
 
-#### 노드 친화성의 주요 기능은 파드가 특정 노드에 호스팅되도록 보장하는 것입니다.
+#### Node Affinity의 주요 기능은 파드가 특정 노드에 호스팅되도록 보장하는 것입니다.
 - **`nodeSelector`** 를 사용하면 고급 표현식을 제공할 수 없습니다.
   ```
   apiVersion: v1
@@ -86,7 +86,7 @@
   ![na2](../../images/na2.PNG)
   
 
-## 노드 친화성 유형
+## Node Affinity 유형
 - Availiable
   - requiredDuringSchedulingIgnoredDuringExecution
   - preferredDuringSchedulingIgnoredDuringExecution
@@ -96,7 +96,7 @@
   
   ![nat](../../images/nat.PNG)
   
-## 노드 친화성 유형 상태
+## Node Affinity 유형 상태
 - `required`
   - 매칭되는 게 없으면 스케쥴 X
 - `preferred`
@@ -108,8 +108,7 @@
   - 실행중일 때 노드 레이블이 변경 시 **파드 변경**
 
   ![nats](../../images/nats.PNG)
-  
-  ![nats1](../../images/nats1.PNG)
+    ![nats1](../../images/nats1.PNG)
   
 #### K8s 참조 문서
 - https://kubernetes.io/docs/tasks/configure-pod-container/assign-pods-nodes-using-node-affinity/

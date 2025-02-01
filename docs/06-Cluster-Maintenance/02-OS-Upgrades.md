@@ -7,10 +7,9 @@
 - 5분 값은 `kube-controller-manager`의 `--pod-eviction-timeout`에 저장
 - 해당 Pod가 `replicaSet`에 속해있으면 다른 노드에 Pod 생성
 - 해당 Pod가 `replicaSet`에 속해있지 않으면 그냥 삭제
-
   ![os](../../images/os.PNG)
   
-- 노드의 모든 작업 부하를 **`drain`**하여 다른 노드로 이동할 수 있습니다.
+- 노드의 모든 작업 부하를 **`drain`** 하여 다른 노드로 이동할 수 있습니다.
   - drain 한 노드의 Pod 를 **삭제후 다른 노드에 재성성** 
   - drain 한 노드는 새로운 Pod 가 스케쥴 될 수 없음.
   ```

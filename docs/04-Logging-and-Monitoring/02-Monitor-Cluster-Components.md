@@ -7,14 +7,12 @@
   ![mon](../../images/mon.PNG)
  
 ## Heapster vs Metrics Server
-- Heapster는 이제 더 이상 사용되지 않으며, **`metrics server`**라는 축소된 버전이 형성되었습니다.
-
+- Heapster는 이제 더 이상 사용되지 않으며, **`metrics server`** 라는 축소된 버전이 형성되었습니다.
   ![hpms](../../images/hpms.PNG)
   
 ## Metrics Server
 - In-Memory monitoring solution
-  - Metric을 스토리지에 저장하지 않음.
-
+  - Metric을 스토리지에 저장하지 않고 메모리에 저장.
   ![ms1](../../images/ms1.PNG)
 
 #### 노드에서 POD의 메트릭은 어떻게 생성되나요?
@@ -22,7 +20,6 @@ kubelet 안에 `cAdvisor` 가 있어서 pod의 performace metrics를 수집하�
   ![ca](../../images/ca.PNG)
   
 ## Metrics Server - 시작하기
-
   ![msg](../../images/msg.PNG)
   
 - GitHub 리포지토리에서 metric server를 클론합니다.

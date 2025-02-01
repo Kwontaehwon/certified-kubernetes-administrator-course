@@ -4,7 +4,6 @@
 이 섹션에서는 배포에서 롤링 업데이트와 롤백을 살펴보겠습니다.
 
 ## Rollout 및 버전 관리
-
   ![rollv](../../images/rollv.PNG)
   
 ## Rollout 명령어
@@ -78,7 +77,6 @@
   ![up](../../images/up.PNG)
   
 ## 롤백
-  
   ![rb](../../images/rb.PNG)
   
 - 변경 사항을 되돌리려면
@@ -87,7 +85,7 @@
   ```
   
 ## kubectl create
-- 배포를 생성하려면
+- Deployment를 생성하려면
   ```
   $ kubectl create deployment nginx --image=nginx
   ```

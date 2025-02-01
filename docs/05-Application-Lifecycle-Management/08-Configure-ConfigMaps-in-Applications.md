@@ -27,6 +27,7 @@
      APP_COLOR: blue
      APP_MODE: prod
     ```
+  
     ```
     config map 정의 파일을 생성하고 'kubectl create' 명령어를 실행하여 배포합니다.
     $ kubectl create -f config-map.yaml
@@ -64,6 +65,7 @@
       - configMapRef:
           name: app-config
    ```
+ 
    ```
    apiVersion: v1
    kind: ConfigMap
@@ -73,6 +75,7 @@
      APP_COLOR: blue
      APP_MODE: prod
    ```
+ 
    ```
    $ kubectl create -f pod-definition.yaml
    ```
@@ -80,8 +83,8 @@
    ![cmp](../../images/cmp.PNG)
    
  #### pod에 구성 변수를 주입하는 다른 방법   
- - **`Single Environment Variable`**로 주입할 수 있습니다. 
- - **`Volume`**에 파일로 주입할 수 있습니다.
+ - **`Single Environment Variable`** 로 주입할 수 있습니다. 
+ - **`Volume`** 에 파일로 주입할 수 있습니다.
  
    ![cmp1](../../images/cmp1.PNG)
    

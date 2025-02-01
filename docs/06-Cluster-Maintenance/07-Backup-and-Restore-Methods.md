@@ -8,7 +8,6 @@
  
 ## 리소스 구성
 - 명령형 방식
-  
   ![rci](../../images/rci.PNG)
 
 - 선언형 방식 (선호하는 접근법)
@@ -37,7 +36,7 @@
   $ kubectl get all --all-namespaces -o yaml > all-deploy-services.yaml (일부 리소스 그룹에 대해서만)
   ```
 
-- 고려해야 할 다른 많은 리소스 그룹이 있다. **`ARK`** 또는 현재 **`Velero`**로 알려진 Heptio와 같은 도구가 이를 도와줄 수 있다.
+- 고려해야 할 다른 많은 리소스 그룹이 있다. **`ARK`** 또는 현재 **`Velero`** 로 알려진 Heptio와 같은 도구가 이를 도와줄 수 있다.
 
   ![brc](../../images/brc.PNG)
   
@@ -52,7 +51,7 @@
   $ ETCDCTL_API=3 etcdctl snapshot save snapshot.db
   ```
   ```
-  $  ETCDCTL_API=3 etcdctl snapshot status snapshot.db
+  $ ETCDCTL_API=3 etcdctl snapshot status snapshot.db
   ```
   ![be1](../../images/be1.PNG)
   

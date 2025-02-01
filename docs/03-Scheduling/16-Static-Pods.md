@@ -10,7 +10,7 @@
 
 ## 정적 파드 구성 : 옵션으로 경로 전달
 - 지정된 디렉토리는 호스트의 어떤 디렉토리든 될 수 있으며, 해당 디렉토리의 위치는 서비스를 실행할 때 kubelet에 옵션으로 전달됩니다.
-  - 이 옵션의 이름은 **`--pod-manifest-path`**입니다.
+  - 이 옵션의 이름은 **`--pod-manifest-path`** 입니다.
   ![sp](../../images/sp.PNG)
   
 ## 정적 파드를 구성하는 또 다른 방법  : 옵션으로 파일 전달
@@ -23,7 +23,7 @@
   ```
   $ docker ps
   ```
-  kubectl은 kube-api-server로 동작하므로 이것이 없을 경우 container runtime 커맨드를 사용해야함.
+  kubectl은 kube-apiserver로 동작하므로 이것이 없을 경우 container runtime 커맨드를 사용해야함.
   ![sp2](../../images/sp2.PNG)
 
 ## Static Pod 생성 : POST 요청 이용
