@@ -2,7 +2,15 @@
 
   - Take me to [Advance Practice Test for Kubectl Commands](https://kodekloud.com/topic/practice-test-advanced-kubectl-commands/)
 
-  ### Solution
+### 풀이
+- `-o=jsonpath='{<JSON PATH>}'`
+	- JSON PATH 구문을 `'{}'` 로 묶어야함.
+- `--sort-by=`
+	- 이걸 쓸 땐 `{}` `''` 둘다 X
+- `-o=custom-columns=` 쓸 때 조건들을 `,` 로 이어주면서 그 사이에 빈칸이 있으면 안됨
+	-  `-o=custom columns=NAME:.metadata.name,CAPACITY:.spec.capacity.storage`
+
+### Solution
 
    1. Check Solution 
 
